@@ -1,0 +1,53 @@
+#######################################
+# Syntax Coloring Map For MLX90614
+#######################################
+
+#######################################
+# Datatypes            (KEYWORD1)
+#######################################
+
+MLX90614                KEYWORD1
+CRC8                    KEYWORD1
+tempUnit_t              KEYWORD1
+tempSrc_t               KEYWORD1
+MLX90614_TK             KEYWORD1
+MLX90614_TC             KEYWORD1
+MLX90614_TF             KEYWORD1
+MLX90614_SRCA           KEYWORD1
+MLX90614_SRCO1          KEYWORD1
+MLX90614_SRCO2          KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin                   KEYWORD2
+readID                  KEYWORD2
+readTemp                KEYWORD2
+convKtoC                KEYWORD2
+convCtoF                KEYWORD2
+setEmissivity           KEYWORD2
+setIIRcoeff             KEYWORD2
+setFIRcoeff             KEYWORD2
+setEEPromDefaults       KEYWORD2
+setSMBusAddr            KEYWORD2
+getSMBusAddr            KEYWORD2
+readEEProm              KEYWORD2
+crc8Start               KEYWORD2
+rwError                 KEYWORD2
+crc8                    KEYWORD2
+pec                     KEYWORD2
+
+#######################################
+# Constants            (LITERAL1)
+#######################################
+
+MLX90614_SUCCESS        LITERAL1
+MLX90614_DATATOOLONG    LITERAL1
+MLX90614_TXADDRNACK     LITERAL1
+MLX90614_TXDATANACK     LITERAL1
+MLX90614_TXOTHER        LITERAL1
+MLX90614_RXCRC          LITERAL1
+MLX90614_INVALIDATA     LITERAL1
+MLX90614_EECORRUPT      LITERAL1
+
