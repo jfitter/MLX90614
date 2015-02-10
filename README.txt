@@ -7,7 +7,7 @@ data logging and air to ground telemetry.
 
 These sensors use the SMB bus protocol to communicate. This is
 similar though not identical to the I2C bus. There is enough
-similarity to enable the Arduino standare Wire library to
+similarity to enable the Arduino standard Wire library to
 communicate with the device, however not all features can be
 implemented, for example it is not possible to read the flags
 register with standard Wire functions. 2 pins are required to

@@ -177,7 +177,7 @@ void MLX90614::setFIRcoeff(uint8_t csb = 7) {
  */
 void MLX90614::setSMBusAddr(uint8_t addr = MLX90614_I2CDEFAULTADDR) {
 
-    _rwError;
+    _rwError = 0;
 
     // it is assumed we do not know the existing slave address
     // so the broadcast address is used
