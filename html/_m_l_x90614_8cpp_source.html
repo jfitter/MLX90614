@@ -278,35 +278,35 @@
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">// it is assumed we do not know the existing slave address</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">// so the broadcast address is used</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">// first ensure the new address is in legal range (1..127)</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">if</span>(addr &amp;= 0x7f) {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = 0;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <a class="code" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">writeEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#af57cd108cf3cd4e21dc471263b2236ec">MLX90614_ADDR</a>, addr);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = addr;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    } <span class="keywordflow">else</span> <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#a6d1d12ae182d43f3890c84d08e3147d1">MLX90614_INVALIDATA</a>;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> *  \brief            Return the device SMBus address.</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> *  \remarks</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> *  \li               Must be only device on the bus.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> *  \li               Sets the library to use the new found address.</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> *  \return           Device address.</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">  246</a></span>&#160;uint8_t <a class="code" href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">MLX90614::getAddr</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    uint8_t tempAddr = <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a>;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> = 0;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">// it is assumed we do not know the existing slave address</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="comment">// so the broadcast address is used</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = 0;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">// reload program copy with existing slave address</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = lowByte(<a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">readEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#af57cd108cf3cd4e21dc471263b2236ec">MLX90614_ADDR</a>));</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">// on any R/W error restore program copy of slave address</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = tempAddr;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">// this will throw an error so errors will be ignored</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">// first ensure the new address is in legal range (1..127)</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">if</span>(addr &amp;= 0x7f) {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = <a class="code" href="_m_l_x90614_8h.html#afc35f075f26585b4d971069e63c21c12">MLX90614_BROADCASTADDR</a>;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <a class="code" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">writeEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#af57cd108cf3cd4e21dc471263b2236ec">MLX90614_ADDR</a>, addr);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = addr;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    } <span class="keywordflow">else</span> <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#a6d1d12ae182d43f3890c84d08e3147d1">MLX90614_INVALIDATA</a>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> *  \brief            Return the device SMBus address.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> *  \remarks</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> *  \li               Must be only device on the bus.</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> *  \li               Sets the library to use the new found address.</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> *  \return           Device address.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">  247</a></span>&#160;uint8_t <a class="code" href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">MLX90614::getAddr</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    uint8_t tempAddr = <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a>;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> = 0;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="comment">// it is assumed we do not know the existing slave address</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">// so the broadcast address is used</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// this will throw a r/w error so errors will be ignored</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = <a class="code" href="_m_l_x90614_8h.html#afc35f075f26585b4d971069e63c21c12">MLX90614_BROADCASTADDR</a>;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">// reload program copy with existing slave address</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a> = lowByte(<a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">readEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#af57cd108cf3cd4e21dc471263b2236ec">MLX90614_ADDR</a>));</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_m_l_x90614.html#a768925264f76f33f9bf98aec1cbec6a9">_addr</a>;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"></span></div>
@@ -376,77 +376,80 @@
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">// then write the crc and set the error status bits</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    Wire.write(<a class="code" href="class_m_l_x90614.html#a2526978eb988a8712baee6dca596be15">_pec</a> = <a class="code" href="class_m_l_x90614.html#add210d34992507e8ccb753a040b14395">_crc8</a>);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= (1 &lt;&lt; Wire.endTransmission(<span class="keyword">false</span>)) &gt;&gt; 1;      <span class="comment">// fixed 19jul17 - changed from &quot;true&quot;</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment"> *  \brief            Return a 16 bit value read from EEPROM.</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment"> *  \param [in] addr  Register address to read from.</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment"> *  \return           Value read from EEPROM.</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">  337</a></span>&#160;uint16_t <a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">MLX90614::readEEProm</a>(uint8_t addr) {<span class="keywordflow">return</span> <a class="code" href="class_m_l_x90614.html#ad7fb030682918c5c9ae6292962527b44">read16</a>(addr | 0x20);}</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment"> *  \brief            Write a 16 bit value to EEPROM after first clearing the memory.</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment"> *  \remarks</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment"> *  \li               Erase and write time 5ms per manufacturer specification</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"> *  \li               Manufacturer does not specify max or min erase/write times</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"> *  \param [in] reg   Address to write to.</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment"> *  \param [in] data  Value to write.</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">  347</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">MLX90614::writeEEProm</a>(uint8_t reg, uint16_t data) {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    uint16_t val;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    reg |= 0x20;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment">// read current value, compare to the new value, and do nothing on a match</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">// or if there are read errors set the error status flag only</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    val = <a class="code" href="class_m_l_x90614.html#ad7fb030682918c5c9ae6292962527b44">read16</a>(reg);</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordflow">if</span>((val != data) &amp;&amp; !<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) {</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="comment">// on any R/W errors it is assumed the memory is corrupted</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="comment">// clear the memory and wait Terase (per manufacturer&#39;s documentation)</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <a class="code" href="class_m_l_x90614.html#a18cf4b5a62e225e8530a1e0f641ea027">write16</a>(reg, 0);</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        delay(5);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="comment">// if no write errors then write the new value</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#aa45966c4b6e90fb1d5b8e1597c54ae4d">MLX90614_EECORRUPT</a>;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">// this will throw an error when the broadcast address is being used</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">// it can be safely ignored just in this case</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= (1 &lt;&lt; Wire.endTransmission(<span class="keyword">true</span>)) &gt;&gt; 1;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment"> *  \brief            Return a 16 bit value read from EEPROM.</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment"> *  \param [in] addr  Register address to read from.</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment"> *  \return           Value read from EEPROM.</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">  340</a></span>&#160;uint16_t <a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">MLX90614::readEEProm</a>(uint8_t addr) {<span class="keywordflow">return</span> <a class="code" href="class_m_l_x90614.html#ad7fb030682918c5c9ae6292962527b44">read16</a>(addr | 0x20);}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"> *  \brief            Write a 16 bit value to EEPROM after first clearing the memory.</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"> *  \remarks</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment"> *  \li               Erase and write time 5ms per manufacturer specification</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"> *  \li               Manufacturer does not specify max or min erase/write times</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment"> *  \param [in] reg   Address to write to.</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment"> *  \param [in] data  Value to write.</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">  350</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">MLX90614::writeEEProm</a>(uint8_t reg, uint16_t data) {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    uint16_t val;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    reg |= 0x20;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">// read current value, compare to the new value, and do nothing on a match</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">// or if there are read errors set the error status flag only</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    val = <a class="code" href="class_m_l_x90614.html#ad7fb030682918c5c9ae6292962527b44">read16</a>(reg);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">if</span>((val != data) &amp;&amp; !<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="comment">// on any R/W errors it is assumed the memory is corrupted</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="comment">// clear the memory and wait Terase (per manufacturer&#39;s documentation)</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <a class="code" href="class_m_l_x90614.html#a18cf4b5a62e225e8530a1e0f641ea027">write16</a>(reg, 0);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        delay(5);</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#aa45966c4b6e90fb1d5b8e1597c54ae4d">MLX90614_EECORRUPT</a>;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="comment">// write the data and wait Twrite (per manufacturer&#39;s documentation)</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            <a class="code" href="class_m_l_x90614.html#a18cf4b5a62e225e8530a1e0f641ea027">write16</a>(reg, data); </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            delay(5);</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#aa45966c4b6e90fb1d5b8e1597c54ae4d">MLX90614_EECORRUPT</a>;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        }</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment"> *  \brief            Convert temperature in degrees K to degrees C.</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment"> *  \param [in] degK  Temperature in degrees Kelvin.</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment"> *  \return           Temperature in degrees Centigrade.</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">  378</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">MLX90614::convKtoC</a>(<span class="keywordtype">double</span> degK) {<span class="keywordflow">return</span> degK - 273.15;}</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment"> *  \brief            Convert temperature in degrees C to degrees F.</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"> *  \param [in] degC  Temperature in degrees Centigrade.</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment"> *  \return           Temperature in degrees Fahrenheit.</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">  385</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">MLX90614::convCtoF</a>(<span class="keywordtype">double</span> degC) {<span class="keywordflow">return</span> (degC * 9. / 5.) + 32.;}</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment"> *  \brief            Retrieve the chip ID bytes.</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"> *  \return           Chip ID as a 64 bit word.</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">  391</a></span>&#160;uint64_t <a class="code" href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">MLX90614::readID</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    uint64_t ID = 0;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="comment">// if we are lucky the compiler will optimise this</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 4; i++) ID = (ID &lt;&lt;= 16) | <a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">readEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#ab9d92fa5fa4e1fd97640fbde9b3980e1">MLX90614_ID1</a> + i);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordflow">return</span> ID;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;}</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
-<div class="ttc" id="class_m_l_x90614_html_a2a5b34da155086b85fb74ceb7310b2cb"><div class="ttname"><a href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">MLX90614::convCtoF</a></div><div class="ttdeci">double convCtoF(double)</div><div class="ttdoc">Convert temperature in degrees C to degrees F. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00385">MLX90614.cpp:385</a></div></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="comment">// if the broadcast address is used then a r/w error will be thrown</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="comment">// we just ignore it and carry on writing the data</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="comment">// write the data and wait Twrite (per manufacturer&#39;s documentation)</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <a class="code" href="class_m_l_x90614.html#a18cf4b5a62e225e8530a1e0f641ea027">write16</a>(reg, data); </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        delay(5);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="comment">// when using the braodcast address the application can ignore this error</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a>) <a class="code" href="class_m_l_x90614.html#a8c203cc9359c283d07682ba7dbcc5de3">_rwError</a> |= <a class="code" href="_m_l_x90614_8h.html#aa45966c4b6e90fb1d5b8e1597c54ae4d">MLX90614_EECORRUPT</a>;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment"> *  \brief            Convert temperature in degrees K to degrees C.</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment"> *  \param [in] degK  Temperature in degrees Kelvin.</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment"> *  \return           Temperature in degrees Centigrade.</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">  381</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">MLX90614::convKtoC</a>(<span class="keywordtype">double</span> degK) {<span class="keywordflow">return</span> degK - 273.15;}</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment"> *  \brief            Convert temperature in degrees C to degrees F.</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment"> *  \param [in] degC  Temperature in degrees Centigrade.</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment"> *  \return           Temperature in degrees Fahrenheit.</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">  388</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">MLX90614::convCtoF</a>(<span class="keywordtype">double</span> degC) {<span class="keywordflow">return</span> (degC * 9. / 5.) + 32.;}</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"> *  \brief            Retrieve the chip ID bytes.</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment"> *  \return           Chip ID as a 64 bit word.</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">  394</a></span>&#160;uint64_t <a class="code" href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">MLX90614::readID</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    uint64_t ID = 0;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="comment">// if we are lucky the compiler will optimise this</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 4; i++) ID = (ID &lt;&lt;= 16) | <a class="code" href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">readEEProm</a>(<a class="code" href="_m_l_x90614_8h.html#ab9d92fa5fa4e1fd97640fbde9b3980e1">MLX90614_ID1</a> + i);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordflow">return</span> ID;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;}</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
+<div class="ttc" id="class_m_l_x90614_html_a2a5b34da155086b85fb74ceb7310b2cb"><div class="ttname"><a href="class_m_l_x90614.html#a2a5b34da155086b85fb74ceb7310b2cb">MLX90614::convCtoF</a></div><div class="ttdeci">double convCtoF(double)</div><div class="ttdoc">Convert temperature in degrees C to degrees F. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00388">MLX90614.cpp:388</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf"><div class="ttname"><a href="class_m_l_x90614.html#a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf">MLX90614::MLX90614_TC</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00128">MLX90614.h:128</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a18769519e647d93c959566b81d2e514f"><div class="ttname"><a href="class_m_l_x90614.html#a18769519e647d93c959566b81d2e514f">MLX90614::tempUnit_t</a></div><div class="ttdeci">tempUnit_t</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00127">MLX90614.h:127</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a500f8c49b00e725d5c201092d9c02b8baa8763ed94d24c7d2a45fcec6d7183643"><div class="ttname"><a href="class_m_l_x90614.html#a500f8c49b00e725d5c201092d9c02b8baa8763ed94d24c7d2a45fcec6d7183643">MLX90614::MLX90614_SRC02</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00134">MLX90614.h:134</a></div></div>
@@ -454,7 +457,7 @@
 <div class="ttc" id="_m_l_x90614_8h_html_ab9d92fa5fa4e1fd97640fbde9b3980e1"><div class="ttname"><a href="_m_l_x90614_8h.html#ab9d92fa5fa4e1fd97640fbde9b3980e1">MLX90614_ID1</a></div><div class="ttdeci">#define MLX90614_ID1</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00075">MLX90614.h:75</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a500f8c49b00e725d5c201092d9c02b8b"><div class="ttname"><a href="class_m_l_x90614.html#a500f8c49b00e725d5c201092d9c02b8b">MLX90614::tempSrc_t</a></div><div class="ttdeci">tempSrc_t</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00132">MLX90614.h:132</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b"><div class="ttname"><a href="class_m_l_x90614.html#a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b">MLX90614::MLX90614_SRC01</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00133">MLX90614.h:133</a></div></div>
-<div class="ttc" id="class_m_l_x90614_html_a7ba22b140f92bea70381cf3c495d4c72"><div class="ttname"><a href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">MLX90614::getAddr</a></div><div class="ttdeci">uint8_t getAddr(void)</div><div class="ttdoc">Return the device SMBus address. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00246">MLX90614.cpp:246</a></div></div>
+<div class="ttc" id="class_m_l_x90614_html_a7ba22b140f92bea70381cf3c495d4c72"><div class="ttname"><a href="class_m_l_x90614.html#a7ba22b140f92bea70381cf3c495d4c72">MLX90614::getAddr</a></div><div class="ttdeci">uint8_t getAddr(void)</div><div class="ttdoc">Return the device SMBus address. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00247">MLX90614.cpp:247</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a18769519e647d93c959566b81d2e514fa34f399de3c986d3eede0268f6a34a96b"><div class="ttname"><a href="class_m_l_x90614.html#a18769519e647d93c959566b81d2e514fa34f399de3c986d3eede0268f6a34a96b">MLX90614::MLX90614_TF</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00129">MLX90614.h:129</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_aa45966c4b6e90fb1d5b8e1597c54ae4d"><div class="ttname"><a href="_m_l_x90614_8h.html#aa45966c4b6e90fb1d5b8e1597c54ae4d">MLX90614_EECORRUPT</a></div><div class="ttdeci">#define MLX90614_EECORRUPT</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00095">MLX90614.h:95</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_af32948c76dba5dacaa67850cc9f2d09e"><div class="ttname"><a href="_m_l_x90614_8h.html#af32948c76dba5dacaa67850cc9f2d09e">MLX90614_XDLY</a></div><div class="ttdeci">#define MLX90614_XDLY</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00053">MLX90614.h:53</a></div></div>
@@ -464,11 +467,11 @@
 <div class="ttc" id="class_m_l_x90614_html_a8b50c1957a50c7dda5767fe881a7fa95"><div class="ttname"><a href="class_m_l_x90614.html#a8b50c1957a50c7dda5767fe881a7fa95">MLX90614::getFIRcoeff</a></div><div class="ttdeci">uint8_t getFIRcoeff(void)</div><div class="ttdoc">Get the coefficients of the FIR digital filter. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00207">MLX90614.cpp:207</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_ab7e462d10f8d26bdd55f77eb4c81a5ff"><div class="ttname"><a href="class_m_l_x90614.html#ab7e462d10f8d26bdd55f77eb4c81a5ff">MLX90614::setEmissivity</a></div><div class="ttdeci">void setEmissivity(float emiss=1.0)</div><div class="ttdoc">Set the emissivity of the object. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00105">MLX90614.cpp:105</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_a0f608580f8b2dd959d8bb0d86667c020"><div class="ttname"><a href="_m_l_x90614_8h.html#a0f608580f8b2dd959d8bb0d86667c020">MLX90614_TA</a></div><div class="ttdeci">#define MLX90614_TA</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00063">MLX90614.h:63</a></div></div>
-<div class="ttc" id="class_m_l_x90614_html_a70b3e428c623b6af5bedf199f5c16490"><div class="ttname"><a href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">MLX90614::writeEEProm</a></div><div class="ttdeci">void writeEEProm(uint8_t, uint16_t)</div><div class="ttdoc">Write a 16 bit value to EEPROM after first clearing the memory. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00347">MLX90614.cpp:347</a></div></div>
+<div class="ttc" id="class_m_l_x90614_html_a70b3e428c623b6af5bedf199f5c16490"><div class="ttname"><a href="class_m_l_x90614.html#a70b3e428c623b6af5bedf199f5c16490">MLX90614::writeEEProm</a></div><div class="ttdeci">void writeEEProm(uint8_t, uint16_t)</div><div class="ttdoc">Write a 16 bit value to EEPROM after first clearing the memory. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00350">MLX90614.cpp:350</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html"><div class="ttname"><a href="_m_l_x90614_8h.html">MLX90614.h</a></div><div class="ttdoc">Melexis MLX90614 Family Device Driver Library - CPP Header file. </div></div>
 <div class="ttc" id="class_m_l_x90614_html_a7bd321c53f70f4f3a96f7c6c7d4cb80e"><div class="ttname"><a href="class_m_l_x90614.html#a7bd321c53f70f4f3a96f7c6c7d4cb80e">MLX90614::getPEC</a></div><div class="ttdeci">uint8_t getPEC(void)</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00153">MLX90614.h:153</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_aa13abb960da5f7d8d0eb26df8632a679"><div class="ttname"><a href="class_m_l_x90614.html#aa13abb960da5f7d8d0eb26df8632a679">MLX90614::crc8</a></div><div class="ttdeci">Property&lt; uint8_t, MLX90614 &gt; crc8</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00123">MLX90614.h:123</a></div></div>
-<div class="ttc" id="class_m_l_x90614_html_aab0a010875527f4ac3d2794017624b10"><div class="ttname"><a href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">MLX90614::readEEProm</a></div><div class="ttdeci">uint16_t readEEProm(uint8_t)</div><div class="ttdoc">Return a 16 bit value read from EEPROM. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00337">MLX90614.cpp:337</a></div></div>
+<div class="ttc" id="class_m_l_x90614_html_aab0a010875527f4ac3d2794017624b10"><div class="ttname"><a href="class_m_l_x90614.html#aab0a010875527f4ac3d2794017624b10">MLX90614::readEEProm</a></div><div class="ttdeci">uint16_t readEEProm(uint8_t)</div><div class="ttdoc">Return a 16 bit value read from EEPROM. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00340">MLX90614.cpp:340</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a785e254cb6af386a7f23ebd427b50c81"><div class="ttname"><a href="class_m_l_x90614.html#a785e254cb6af386a7f23ebd427b50c81">MLX90614::getRwError</a></div><div class="ttdeci">uint8_t getRwError(void)</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00151">MLX90614.h:151</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a44234371f1e9dd36781898d0c87fdbbf"><div class="ttname"><a href="class_m_l_x90614.html#a44234371f1e9dd36781898d0c87fdbbf">MLX90614::getEmissivity</a></div><div class="ttdeci">float getEmissivity(void)</div><div class="ttdoc">Get the emissivity of the object. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00118">MLX90614.cpp:118</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a3849320b7988ca5882f25fbc87dd0de7"><div class="ttname"><a href="class_m_l_x90614.html#a3849320b7988ca5882f25fbc87dd0de7">MLX90614::setFIRcoeff</a></div><div class="ttdeci">void setFIRcoeff(uint8_t csb=7)</div><div class="ttdoc">Set the coefficients of the FIR digital filter. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00182">MLX90614.cpp:182</a></div></div>
@@ -478,7 +481,7 @@
 <div class="ttc" id="_m_l_x90614_8h_html_a6ed9e9c217b391092fd5aa843688b6b8"><div class="ttname"><a href="_m_l_x90614_8h.html#a6ed9e9c217b391092fd5aa843688b6b8">MLX90614_CONFIG</a></div><div class="ttdeci">#define MLX90614_CONFIG</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00073">MLX90614.h:73</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_a1ed8b42041518a3ef52a7283211ac1f5"><div class="ttname"><a href="_m_l_x90614_8h.html#a1ed8b42041518a3ef52a7283211ac1f5">MLX90614_CRC8POLY</a></div><div class="ttdeci">#define MLX90614_CRC8POLY</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00052">MLX90614.h:52</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_ade3c27bfa8ff06c043e2c83743e38b5c"><div class="ttname"><a href="class_m_l_x90614.html#ade3c27bfa8ff06c043e2c83743e38b5c">MLX90614::begin</a></div><div class="ttdeci">boolean begin()</div><div class="ttdoc">Initialize the device and the i2c interface. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00066">MLX90614.cpp:66</a></div></div>
-<div class="ttc" id="class_m_l_x90614_html_af0a52019a3c66f0ae3b954a4e7475c88"><div class="ttname"><a href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">MLX90614::convKtoC</a></div><div class="ttdeci">double convKtoC(double)</div><div class="ttdoc">Convert temperature in degrees K to degrees C. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00378">MLX90614.cpp:378</a></div></div>
+<div class="ttc" id="class_m_l_x90614_html_af0a52019a3c66f0ae3b954a4e7475c88"><div class="ttname"><a href="class_m_l_x90614.html#af0a52019a3c66f0ae3b954a4e7475c88">MLX90614::convKtoC</a></div><div class="ttdeci">double convKtoC(double)</div><div class="ttdoc">Convert temperature in degrees K to degrees C. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00381">MLX90614.cpp:381</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_a6d1d12ae182d43f3890c84d08e3147d1"><div class="ttname"><a href="_m_l_x90614_8h.html#a6d1d12ae182d43f3890c84d08e3147d1">MLX90614_INVALIDATA</a></div><div class="ttdeci">#define MLX90614_INVALIDATA</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00094">MLX90614.h:94</a></div></div>
 <div class="ttc" id="class_c_r_c8_html_a03f58a9f90db0e1d22fc48ba486a3654"><div class="ttname"><a href="class_c_r_c8.html#a03f58a9f90db0e1d22fc48ba486a3654">CRC8::crc8</a></div><div class="ttdeci">uint8_t crc8(void)</div><div class="ttdoc">Return the current value of the CRC. </div><div class="ttdef"><b>Definition:</b> <a href="_crc8_8cpp_source.html#l00042">Crc8.cpp:42</a></div></div>
 <div class="ttc" id="_m_l_x90614_8h_html_af57cd108cf3cd4e21dc471263b2236ec"><div class="ttname"><a href="_m_l_x90614_8h.html#af57cd108cf3cd4e21dc471263b2236ec">MLX90614_ADDR</a></div><div class="ttdeci">#define MLX90614_ADDR</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00074">MLX90614.h:74</a></div></div>
@@ -495,11 +498,12 @@
 <div class="ttc" id="_m_l_x90614_8h_html_aeff5f43e3a0aab6b1b649916f1ca2584"><div class="ttname"><a href="_m_l_x90614_8h.html#aeff5f43e3a0aab6b1b649916f1ca2584">MLX90614_RXCRC</a></div><div class="ttdeci">#define MLX90614_RXCRC</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00093">MLX90614.h:93</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a3d8646faede1c0adc667c54a0c95a7db"><div class="ttname"><a href="class_m_l_x90614.html#a3d8646faede1c0adc667c54a0c95a7db">MLX90614::setAddr</a></div><div class="ttdeci">void setAddr(uint8_t)</div><div class="ttdoc">Set device SMBus address. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00225">MLX90614.cpp:225</a></div></div>
 <div class="ttc" id="class_m_l_x90614_html_a2526978eb988a8712baee6dca596be15"><div class="ttname"><a href="class_m_l_x90614.html#a2526978eb988a8712baee6dca596be15">MLX90614::_pec</a></div><div class="ttdeci">uint8_t _pec</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00146">MLX90614.h:146</a></div></div>
-<div class="ttc" id="class_m_l_x90614_html_a352cc543f3e417d6318b6152d872db2e"><div class="ttname"><a href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">MLX90614::readID</a></div><div class="ttdeci">uint64_t readID(void)</div><div class="ttdoc">Retrieve the chip ID bytes. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00391">MLX90614.cpp:391</a></div></div>
+<div class="ttc" id="class_m_l_x90614_html_a352cc543f3e417d6318b6152d872db2e"><div class="ttname"><a href="class_m_l_x90614.html#a352cc543f3e417d6318b6152d872db2e">MLX90614::readID</a></div><div class="ttdeci">uint64_t readID(void)</div><div class="ttdoc">Retrieve the chip ID bytes. </div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8cpp_source.html#l00394">MLX90614.cpp:394</a></div></div>
+<div class="ttc" id="_m_l_x90614_8h_html_afc35f075f26585b4d971069e63c21c12"><div class="ttname"><a href="_m_l_x90614_8h.html#afc35f075f26585b4d971069e63c21c12">MLX90614_BROADCASTADDR</a></div><div class="ttdeci">#define MLX90614_BROADCASTADDR</div><div class="ttdef"><b>Definition:</b> <a href="_m_l_x90614_8h_source.html#l00051">MLX90614.h:51</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 19 2017 19:06:41 for MLX90614 Device Driver by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 20 2017 03:07:12 for MLX90614 Device Driver by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
