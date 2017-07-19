@@ -1,0 +1,75 @@
+[OPTIONS]
+Compiled file=MLX90614.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=MLX90614 Device Driver
+
+[WINDOWS]
+main="MLX90614 Device Driver","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+_crc8_8cpp_source.html
+_crc8_8h_source.html
+_melexis_test_8ino_source.html
+_m_l_x90614_8cpp_source.html
+_m_l_x90614_8h_source.html
+_crc8_8cpp.html
+_crc8_8h.html
+_melexis_test_8ino.html
+_m_l_x90614_8cpp.html
+_m_l_x90614_8h.html
+class_c_r_c8.html
+class_c_r_c8-members.html
+structdefault_e_e_prom_data.html
+structdefault_e_e_prom_data-members.html
+class_m_l_x90614.html
+class_m_l_x90614-members.html
+dir_d28a4824dc47e487b107a5db32ef43c4.html
+dir_520aa0f76fb1b2e249a0e1ccca123497.html
+index.html
+annotated.html
+classes.html
+functions.html
+functions_func.html
+functions_vars.html
+functions_enum.html
+functions_eval.html
+files.html
+globals.html
+globals_func.html
+globals_defs.html
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
+nav_h.png
+nav_f.png
+bc_s.png
+doxygen.png
+closed.png
+open.png
+bdwn.png
+sync_on.png
+sync_off.png
+MLX90614_ChipPic_55x200.jpg
+ftv2blank.png
+ftv2doc.png
+ftv2folderclosed.png
+ftv2folderopen.png
+ftv2ns.png
+ftv2mo.png
+ftv2cl.png
+ftv2lastnode.png
+ftv2link.png
+ftv2mlastnode.png
+ftv2mnode.png
+ftv2node.png
+ftv2plastnode.png
+ftv2pnode.png
+ftv2vertline.png
+ftv2splitbar.png

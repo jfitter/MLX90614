@@ -1,0 +1,671 @@
+\hypertarget{class_m_l_x90614}{\section{M\-L\-X90614 Class Reference}
+\label{class_m_l_x90614}\index{M\-L\-X90614@{M\-L\-X90614}}
+}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514f}{temp\-Unit\-\_\-t} \{ \hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa074167c1192349236b451ecd3d7e5582}{M\-L\-X90614\-\_\-\-T\-K}, 
+\hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf}{M\-L\-X90614\-\_\-\-T\-C}, 
+\hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa34f399de3c986d3eede0268f6a34a96b}{M\-L\-X90614\-\_\-\-T\-F}
+ \}
+\item 
+enum \hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8b}{temp\-Src\-\_\-t} \{ \hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba8e4a1c077fba74d29d5c7065ed9cc382}{M\-L\-X90614\-\_\-\-S\-R\-C\-A}, 
+\hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b}{M\-L\-X90614\-\_\-\-S\-R\-C01}, 
+\hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8baa8763ed94d24c7d2a45fcec6d7183643}{M\-L\-X90614\-\_\-\-S\-R\-C02}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_l_x90614_abd5039fd7e21e82db9f0cf2575f0d23a}{M\-L\-X90614} (uint8\-\_\-t i2caddr=\hyperlink{_m_l_x90614_8h_a4814993dbb3667d65ff70fe5c9f76858}{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_m_l_x90614}{M\-L\-X90614} Device class constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_m_l_x90614_ade3c27bfa8ff06c043e2c83743e38b5c}{boolean \hyperlink{class_m_l_x90614_ade3c27bfa8ff06c043e2c83743e38b5c}{begin} ()}\label{class_m_l_x90614_ade3c27bfa8ff06c043e2c83743e38b5c}
+
+\begin{DoxyCompactList}\small\item\em Initialize the device and the i2c interface. \end{DoxyCompactList}\item 
+\hypertarget{class_m_l_x90614_a3fa540d984b00a7c062be1b3e84bd881}{boolean {\bfseries is\-Ready} (void)}\label{class_m_l_x90614_a3fa540d984b00a7c062be1b3e84bd881}
+
+\item 
+uint64\-\_\-t \hyperlink{class_m_l_x90614_a352cc543f3e417d6318b6152d872db2e}{read\-I\-D} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the chip I\-D bytes. \end{DoxyCompactList}\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_ac04578d67760dd73df4ed023d9b97896}{get\-I\-I\-Rcoeff} (void)
+\begin{DoxyCompactList}\small\item\em Get the coefficients of the I\-I\-R digital filter. \end{DoxyCompactList}\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a8b50c1957a50c7dda5767fe881a7fa95}{get\-F\-I\-Rcoeff} (void)
+\begin{DoxyCompactList}\small\item\em Get the coefficients of the F\-I\-R digital filter. \end{DoxyCompactList}\item 
+float \hyperlink{class_m_l_x90614_a44234371f1e9dd36781898d0c87fdbbf}{get\-Emissivity} (void)
+\begin{DoxyCompactList}\small\item\em Get the emissivity of the object. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_af62b9d897164375e8c17fb5a8d367600}{set\-I\-I\-Rcoeff} (uint8\-\_\-t csb=4)
+\begin{DoxyCompactList}\small\item\em Set the coefficients of the I\-I\-R digital filter. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_a3849320b7988ca5882f25fbc87dd0de7}{set\-F\-I\-Rcoeff} (uint8\-\_\-t csb=7)
+\begin{DoxyCompactList}\small\item\em Set the coefficients of the F\-I\-R digital filter. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_ab7e462d10f8d26bdd55f77eb4c81a5ff}{set\-Emissivity} (float emiss=1.\-0)
+\begin{DoxyCompactList}\small\item\em Set the emissivity of the object. \end{DoxyCompactList}\item 
+uint16\-\_\-t \hyperlink{class_m_l_x90614_aab0a010875527f4ac3d2794017624b10}{read\-E\-E\-Prom} (uint8\-\_\-t)
+\begin{DoxyCompactList}\small\item\em Return a 16 bit value read from E\-E\-P\-R\-O\-M. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_a70b3e428c623b6af5bedf199f5c16490}{write\-E\-E\-Prom} (uint8\-\_\-t, uint16\-\_\-t)
+\begin{DoxyCompactList}\small\item\em Write a 16 bit value to E\-E\-P\-R\-O\-M after first clearing the memory. \end{DoxyCompactList}\item 
+double \hyperlink{class_m_l_x90614_ab2a8bafff744a249325105d238bfe248}{read\-Temp} (\hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8b}{temp\-Src\-\_\-t}=\hyperlink{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b}{M\-L\-X90614\-\_\-\-S\-R\-C01}, \hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514f}{temp\-Unit\-\_\-t}=\hyperlink{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf}{M\-L\-X90614\-\_\-\-T\-C})
+\begin{DoxyCompactList}\small\item\em Return a temperature from the specified source in specified units. \end{DoxyCompactList}\item 
+double \hyperlink{class_m_l_x90614_af0a52019a3c66f0ae3b954a4e7475c88}{conv\-Kto\-C} (double)
+\begin{DoxyCompactList}\small\item\em Convert temperature in degrees K to degrees C. \end{DoxyCompactList}\item 
+double \hyperlink{class_m_l_x90614_a2a5b34da155086b85fb74ceb7310b2cb}{conv\-Cto\-F} (double)
+\begin{DoxyCompactList}\small\item\em Convert temperature in degrees C to degrees F. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Property$<$ uint8\-\_\-t, \hyperlink{class_m_l_x90614}{M\-L\-X90614} $>$ \hyperlink{class_m_l_x90614_a66d99dc5778b514038c0fa5e25a722f1}{bus\-Addr}
+\item 
+Property$<$ uint8\-\_\-t, \hyperlink{class_m_l_x90614}{M\-L\-X90614} $>$ \hyperlink{class_m_l_x90614_a13d10b57b4369c27e740585bf3907b0e}{rw\-Error}
+\item 
+Property$<$ uint8\-\_\-t, \hyperlink{class_m_l_x90614}{M\-L\-X90614} $>$ \hyperlink{class_m_l_x90614_aa13abb960da5f7d8d0eb26df8632a679}{crc8}
+\item 
+Property$<$ uint8\-\_\-t, \hyperlink{class_m_l_x90614}{M\-L\-X90614} $>$ \hyperlink{class_m_l_x90614_af050e02eecd12a127a98fb2b30e40a88}{pec}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\-\_\-t \hyperlink{class_m_l_x90614_ad7fb030682918c5c9ae6292962527b44}{read16} (uint8\-\_\-t)
+\begin{DoxyCompactList}\small\item\em Return a 16 bit value read from R\-A\-M or E\-E\-P\-R\-O\-M. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_a18cf4b5a62e225e8530a1e0f641ea027}{write16} (uint8\-\_\-t, uint16\-\_\-t)
+\begin{DoxyCompactList}\small\item\em Write a 16 bit value to memory. \end{DoxyCompactList}\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a785e254cb6af386a7f23ebd427b50c81}{get\-Rw\-Error} (void)
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a6635121e11e44f85945d18bb81d85b4f}{get\-C\-R\-C8} (void)
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a7bd321c53f70f4f3a96f7c6c7d4cb80e}{get\-P\-E\-C} (void)
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a7ba22b140f92bea70381cf3c495d4c72}{get\-Addr} (void)
+\begin{DoxyCompactList}\small\item\em Return the device S\-M\-Bus address. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_l_x90614_a3d8646faede1c0adc667c54a0c95a7db}{set\-Addr} (uint8\-\_\-t)
+\begin{DoxyCompactList}\small\item\em Set device S\-M\-Bus address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_m_l_x90614_abcc1f76b9f1c99ae25e365736616679a}{boolean {\bfseries \-\_\-ready}}\label{class_m_l_x90614_abcc1f76b9f1c99ae25e365736616679a}
+
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a768925264f76f33f9bf98aec1cbec6a9}{\-\_\-addr}
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a8c203cc9359c283d07682ba7dbcc5de3}{\-\_\-rw\-Error}
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_add210d34992507e8ccb753a040b14395}{\-\_\-crc8}
+\item 
+uint8\-\_\-t \hyperlink{class_m_l_x90614_a2526978eb988a8712baee6dca596be15}{\-\_\-pec}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 102 of file M\-L\-X90614.\-h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8b}{\index{M\-L\-X90614@{M\-L\-X90614}!temp\-Src\-\_\-t@{temp\-Src\-\_\-t}}
+\index{temp\-Src\-\_\-t@{temp\-Src\-\_\-t}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{temp\-Src\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf M\-L\-X90614\-::temp\-Src\-\_\-t}}}\label{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8b}
+Enumerations for temperature measurement source. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-L\-X90614\-\_\-\-S\-R\-C\-A@{M\-L\-X90614\-\_\-\-S\-R\-C\-A}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-S\-R\-C\-A@{M\-L\-X90614\-\_\-\-S\-R\-C\-A}}\item[{\em 
+\hypertarget{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba8e4a1c077fba74d29d5c7065ed9cc382}{M\-L\-X90614\-\_\-\-S\-R\-C\-A}\label{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba8e4a1c077fba74d29d5c7065ed9cc382}
+}]Chip (ambient) sensor \index{M\-L\-X90614\-\_\-\-S\-R\-C01@{M\-L\-X90614\-\_\-\-S\-R\-C01}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-S\-R\-C01@{M\-L\-X90614\-\_\-\-S\-R\-C01}}\item[{\em 
+\hypertarget{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b}{M\-L\-X90614\-\_\-\-S\-R\-C01}\label{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8ba91f620721ea47dec379db791d735a55b}
+}]I\-R source \#1 \index{M\-L\-X90614\-\_\-\-S\-R\-C02@{M\-L\-X90614\-\_\-\-S\-R\-C02}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-S\-R\-C02@{M\-L\-X90614\-\_\-\-S\-R\-C02}}\item[{\em 
+\hypertarget{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8baa8763ed94d24c7d2a45fcec6d7183643}{M\-L\-X90614\-\_\-\-S\-R\-C02}\label{class_m_l_x90614_a500f8c49b00e725d5c201092d9c02b8baa8763ed94d24c7d2a45fcec6d7183643}
+}]I\-R source \#2 \end{description}
+\end{Desc}
+
+
+Definition at line 132 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a18769519e647d93c959566b81d2e514f}{\index{M\-L\-X90614@{M\-L\-X90614}!temp\-Unit\-\_\-t@{temp\-Unit\-\_\-t}}
+\index{temp\-Unit\-\_\-t@{temp\-Unit\-\_\-t}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{temp\-Unit\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf M\-L\-X90614\-::temp\-Unit\-\_\-t}}}\label{class_m_l_x90614_a18769519e647d93c959566b81d2e514f}
+Enumerations for temperature units. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-L\-X90614\-\_\-\-T\-K@{M\-L\-X90614\-\_\-\-T\-K}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-T\-K@{M\-L\-X90614\-\_\-\-T\-K}}\item[{\em 
+\hypertarget{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa074167c1192349236b451ecd3d7e5582}{M\-L\-X90614\-\_\-\-T\-K}\label{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa074167c1192349236b451ecd3d7e5582}
+}]degrees Kelvin \index{M\-L\-X90614\-\_\-\-T\-C@{M\-L\-X90614\-\_\-\-T\-C}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-T\-C@{M\-L\-X90614\-\_\-\-T\-C}}\item[{\em 
+\hypertarget{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf}{M\-L\-X90614\-\_\-\-T\-C}\label{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa75d66a29cab65ff4514b5cd6a268c7bf}
+}]degrees Centigrade \index{M\-L\-X90614\-\_\-\-T\-F@{M\-L\-X90614\-\_\-\-T\-F}!M\-L\-X90614@{M\-L\-X90614}}\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614\-\_\-\-T\-F@{M\-L\-X90614\-\_\-\-T\-F}}\item[{\em 
+\hypertarget{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa34f399de3c986d3eede0268f6a34a96b}{M\-L\-X90614\-\_\-\-T\-F}\label{class_m_l_x90614_a18769519e647d93c959566b81d2e514fa34f399de3c986d3eede0268f6a34a96b}
+}]degrees Fahrenheit \end{description}
+\end{Desc}
+
+
+Definition at line 127 of file M\-L\-X90614.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_l_x90614_abd5039fd7e21e82db9f0cf2575f0d23a}{\index{M\-L\-X90614@{M\-L\-X90614}!M\-L\-X90614@{M\-L\-X90614}}
+\index{M\-L\-X90614@{M\-L\-X90614}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{M\-L\-X90614}]{\setlength{\rightskip}{0pt plus 5cm}M\-L\-X90614\-::\-M\-L\-X90614 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{i2caddr = {\ttfamily {\bf M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R}}}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_abd5039fd7e21e82db9f0cf2575f0d23a}
+
+
+\hyperlink{class_m_l_x90614}{M\-L\-X90614} Device class constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2caddr} & Device address (default\-: published value). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file M\-L\-X90614.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_l_x90614_a2a5b34da155086b85fb74ceb7310b2cb}{\index{M\-L\-X90614@{M\-L\-X90614}!conv\-Cto\-F@{conv\-Cto\-F}}
+\index{conv\-Cto\-F@{conv\-Cto\-F}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{conv\-Cto\-F}]{\setlength{\rightskip}{0pt plus 5cm}double M\-L\-X90614\-::conv\-Cto\-F (
+\begin{DoxyParamCaption}
+\item[{double}]{deg\-C}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a2a5b34da155086b85fb74ceb7310b2cb}
+
+
+Convert temperature in degrees C to degrees F. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deg\-C} & Temperature in degrees Centigrade. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Temperature in degrees Fahrenheit. 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_af0a52019a3c66f0ae3b954a4e7475c88}{\index{M\-L\-X90614@{M\-L\-X90614}!conv\-Kto\-C@{conv\-Kto\-C}}
+\index{conv\-Kto\-C@{conv\-Kto\-C}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{conv\-Kto\-C}]{\setlength{\rightskip}{0pt plus 5cm}double M\-L\-X90614\-::conv\-Kto\-C (
+\begin{DoxyParamCaption}
+\item[{double}]{deg\-K}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_af0a52019a3c66f0ae3b954a4e7475c88}
+
+
+Convert temperature in degrees K to degrees C. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deg\-K} & Temperature in degrees Kelvin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Temperature in degrees Centigrade. 
+\end{DoxyReturn}
+
+
+Definition at line 378 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a7ba22b140f92bea70381cf3c495d4c72}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-Addr@{get\-Addr}}
+\index{get\-Addr@{get\-Addr}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-Addr (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a7ba22b140f92bea70381cf3c495d4c72}
+
+
+Return the device S\-M\-Bus address. 
+
+S\-M\-B bus address getter
+
+\begin{DoxyRemark}{Remarks}
+\begin{DoxyItemize}
+\item Must be only device on the bus. \item Sets the library to use the new found address. \end{DoxyItemize}
+
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+Device address. 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a6635121e11e44f85945d18bb81d85b4f}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-C\-R\-C8@{get\-C\-R\-C8}}
+\index{get\-C\-R\-C8@{get\-C\-R\-C8}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-C\-R\-C8}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-C\-R\-C8 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_m_l_x90614_a6635121e11e44f85945d18bb81d85b4f}
+8 bit C\-R\-C getter 
+
+Definition at line 152 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a44234371f1e9dd36781898d0c87fdbbf}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-Emissivity@{get\-Emissivity}}
+\index{get\-Emissivity@{get\-Emissivity}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-Emissivity}]{\setlength{\rightskip}{0pt plus 5cm}float M\-L\-X90614\-::get\-Emissivity (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a44234371f1e9dd36781898d0c87fdbbf}
+
+
+Get the emissivity of the object. 
+
+Emissivity getter
+
+\begin{DoxyRemark}{Remarks}
+The emissivity is stored as a 16 bit integer defined by the following\-: \par
+{\ttfamily  emissivity = dec2hex\mbox{[}round(65535 x emiss)\mbox{]}} 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+Physical emissivity value in range 0.\-1 ...1.\-0 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a8b50c1957a50c7dda5767fe881a7fa95}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-F\-I\-Rcoeff@{get\-F\-I\-Rcoeff}}
+\index{get\-F\-I\-Rcoeff@{get\-F\-I\-Rcoeff}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-F\-I\-Rcoeff}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-F\-I\-Rcoeff (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a8b50c1957a50c7dda5767fe881a7fa95}
+
+
+Get the coefficients of the F\-I\-R digital filter. 
+
+I\-I\-R coefficient getter
+
+\begin{DoxyRemark}{Remarks}
+The F\-I\-R digital filter coefficient N is bits 10\-:8 of Config\-Register1 \par
+ The value of N is set as follows\-: {\ttfamily N = 2 $^\wedge$ (csb + 3)} \par
+ The manufacturer does not recommend {\ttfamily N $<$ 128} 
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em csb} & See page 12 of datasheet. Range 0...7 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 207 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_ac04578d67760dd73df4ed023d9b97896}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-I\-I\-Rcoeff@{get\-I\-I\-Rcoeff}}
+\index{get\-I\-I\-Rcoeff@{get\-I\-I\-Rcoeff}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-I\-I\-Rcoeff}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-I\-I\-Rcoeff (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_ac04578d67760dd73df4ed023d9b97896}
+
+
+Get the coefficients of the I\-I\-R digital filter. 
+
+I\-I\-R coefficient getter
+
+\begin{DoxyRemark}{Remarks}
+The I\-I\-R digital filter coefficients are set by the L\-S 3 bits of Config\-Register1 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+Filter coefficient table index. Range 0...7 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a7bd321c53f70f4f3a96f7c6c7d4cb80e}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-P\-E\-C@{get\-P\-E\-C}}
+\index{get\-P\-E\-C@{get\-P\-E\-C}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-P\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-P\-E\-C (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_m_l_x90614_a7bd321c53f70f4f3a96f7c6c7d4cb80e}
+P\-E\-C getter 
+
+Definition at line 153 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a785e254cb6af386a7f23ebd427b50c81}{\index{M\-L\-X90614@{M\-L\-X90614}!get\-Rw\-Error@{get\-Rw\-Error}}
+\index{get\-Rw\-Error@{get\-Rw\-Error}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{get\-Rw\-Error}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::get\-Rw\-Error (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_m_l_x90614_a785e254cb6af386a7f23ebd427b50c81}
+R/\-W error flags getter 
+
+Definition at line 151 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_ad7fb030682918c5c9ae6292962527b44}{\index{M\-L\-X90614@{M\-L\-X90614}!read16@{read16}}
+\index{read16@{read16}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{read16}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t M\-L\-X90614\-::read16 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_ad7fb030682918c5c9ae6292962527b44}
+
+
+Return a 16 bit value read from R\-A\-M or E\-E\-P\-R\-O\-M. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cmd} & Command to send (register to read from). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value read from memory. 
+\end{DoxyReturn}
+
+
+Definition at line 268 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_aab0a010875527f4ac3d2794017624b10}{\index{M\-L\-X90614@{M\-L\-X90614}!read\-E\-E\-Prom@{read\-E\-E\-Prom}}
+\index{read\-E\-E\-Prom@{read\-E\-E\-Prom}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{read\-E\-E\-Prom}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t M\-L\-X90614\-::read\-E\-E\-Prom (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{addr}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_aab0a010875527f4ac3d2794017624b10}
+
+
+Return a 16 bit value read from E\-E\-P\-R\-O\-M. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em addr} & Register address to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value read from E\-E\-P\-R\-O\-M. 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a352cc543f3e417d6318b6152d872db2e}{\index{M\-L\-X90614@{M\-L\-X90614}!read\-I\-D@{read\-I\-D}}
+\index{read\-I\-D@{read\-I\-D}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{read\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t M\-L\-X90614\-::read\-I\-D (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a352cc543f3e417d6318b6152d872db2e}
+
+
+Retrieve the chip I\-D bytes. 
+
+Chip I\-D getter
+
+\begin{DoxyReturn}{Returns}
+Chip I\-D as a 64 bit word. 
+\end{DoxyReturn}
+
+
+Definition at line 391 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_ab2a8bafff744a249325105d238bfe248}{\index{M\-L\-X90614@{M\-L\-X90614}!read\-Temp@{read\-Temp}}
+\index{read\-Temp@{read\-Temp}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{read\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}double M\-L\-X90614\-::read\-Temp (
+\begin{DoxyParamCaption}
+\item[{{\bf temp\-Src\-\_\-t}}]{tsrc = {\ttfamily {\bf M\-L\-X90614\-\_\-\-S\-R\-C01}}, }
+\item[{{\bf temp\-Unit\-\_\-t}}]{tunit = {\ttfamily {\bf M\-L\-X90614\-\_\-\-T\-C}}}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_ab2a8bafff744a249325105d238bfe248}
+
+
+Return a temperature from the specified source in specified units. 
+
+\begin{DoxyRemark}{Remarks}
+\begin{DoxyItemize}
+\item Temperature is stored in ram as a 16 bit absolute value to a resolution of 0.\-02\-K \item Linearized sensor die temperature is available as Ta (ambient). \item One or two object temperatures are linearized to the range -\/38.\-2\-C...125\-C \end{DoxyItemize}
+
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tsrc} & Internal temperature source to read, default \#1. \\
+\hline
+\mbox{\tt in}  & {\em tunit} & Temperature units to convert raw data to, default deg Celsius. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Temperature. 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a3d8646faede1c0adc667c54a0c95a7db}{\index{M\-L\-X90614@{M\-L\-X90614}!set\-Addr@{set\-Addr}}
+\index{set\-Addr@{set\-Addr}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{set\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::set\-Addr (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a3d8646faede1c0adc667c54a0c95a7db}
+
+
+Set device S\-M\-Bus address. 
+
+S\-M\-B bus address setter
+
+\begin{DoxyRemark}{Remarks}
+\begin{DoxyItemize}
+\item Must be only device on the bus. \item Must power cycle the device after changing address. \end{DoxyItemize}
+
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & New device address. Range 1...127 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 225 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_ab7e462d10f8d26bdd55f77eb4c81a5ff}{\index{M\-L\-X90614@{M\-L\-X90614}!set\-Emissivity@{set\-Emissivity}}
+\index{set\-Emissivity@{set\-Emissivity}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{set\-Emissivity}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::set\-Emissivity (
+\begin{DoxyParamCaption}
+\item[{float}]{emiss = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_ab7e462d10f8d26bdd55f77eb4c81a5ff}
+
+
+Set the emissivity of the object. 
+
+Emissivity setter
+
+\begin{DoxyRemark}{Remarks}
+The emissivity is stored as a 16 bit integer defined by the following\-: \par
+{\ttfamily  emissivity = dec2hex\mbox{[}round(65535 x emiss)\mbox{]}} 
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em emiss} & Physical emissivity value in range 0.\-1 ...1.\-0, default 1.\-0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a3849320b7988ca5882f25fbc87dd0de7}{\index{M\-L\-X90614@{M\-L\-X90614}!set\-F\-I\-Rcoeff@{set\-F\-I\-Rcoeff}}
+\index{set\-F\-I\-Rcoeff@{set\-F\-I\-Rcoeff}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{set\-F\-I\-Rcoeff}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::set\-F\-I\-Rcoeff (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{csb = {\ttfamily 7}}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a3849320b7988ca5882f25fbc87dd0de7}
+
+
+Set the coefficients of the F\-I\-R digital filter. 
+
+I\-I\-R coefficient setter
+
+\begin{DoxyRemark}{Remarks}
+The F\-I\-R digital filter coefficient N is bits 10\-:8 of Config\-Register1 \par
+ The value of N is set as follows\-: {\ttfamily N = 2 $^\wedge$ (csb + 3)} \par
+ The manufacturer does not recommend {\ttfamily N $<$ 128} 
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em csb} & See page 12 of datasheet. Range 0...7, default = 7 (N = 1024) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_af62b9d897164375e8c17fb5a8d367600}{\index{M\-L\-X90614@{M\-L\-X90614}!set\-I\-I\-Rcoeff@{set\-I\-I\-Rcoeff}}
+\index{set\-I\-I\-Rcoeff@{set\-I\-I\-Rcoeff}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{set\-I\-I\-Rcoeff}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::set\-I\-I\-Rcoeff (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{csb = {\ttfamily 4}}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_af62b9d897164375e8c17fb5a8d367600}
+
+
+Set the coefficients of the I\-I\-R digital filter. 
+
+I\-I\-R coefficient setter
+
+\begin{DoxyRemark}{Remarks}
+The I\-I\-R digital filter coefficients are set by the L\-S 3 bits of Config\-Register1 \par
+ The value of the coefficients is set as follows\-: \par
+ {\ttfamily \begin{DoxyVerb}csb = 0   a1 = 0.5    a2 = 0.5
+      1        0.25        0.75
+      2        0.167       0.833
+      3        0.125       0.875
+      4        1           0 (IIR bypassed)
+      5        0.8         0.2
+      6        0.67        0.33
+      7        0.57        0.43 \end{DoxyVerb}
+ } 
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em csb} & See page 12 of datasheet. Range 0...7, default = 4 (I\-I\-R bypassed) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 141 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a18cf4b5a62e225e8530a1e0f641ea027}{\index{M\-L\-X90614@{M\-L\-X90614}!write16@{write16}}
+\index{write16@{write16}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{write16}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::write16 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{cmd, }
+\item[{uint16\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a18cf4b5a62e225e8530a1e0f641ea027}
+
+
+Write a 16 bit value to memory. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cmd} & Command to send (register to write to). \\
+\hline
+\mbox{\tt in}  & {\em data} & Value to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 310 of file M\-L\-X90614.\-cpp.
+
+\hypertarget{class_m_l_x90614_a70b3e428c623b6af5bedf199f5c16490}{\index{M\-L\-X90614@{M\-L\-X90614}!write\-E\-E\-Prom@{write\-E\-E\-Prom}}
+\index{write\-E\-E\-Prom@{write\-E\-E\-Prom}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{write\-E\-E\-Prom}]{\setlength{\rightskip}{0pt plus 5cm}void M\-L\-X90614\-::write\-E\-E\-Prom (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{reg, }
+\item[{uint16\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{class_m_l_x90614_a70b3e428c623b6af5bedf199f5c16490}
+
+
+Write a 16 bit value to E\-E\-P\-R\-O\-M after first clearing the memory. 
+
+\begin{DoxyRemark}{Remarks}
+\begin{DoxyItemize}
+\item Erase and write time 5ms per manufacturer specification \item Manufacturer does not specify max or min erase/write times \end{DoxyItemize}
+
+\end{DoxyRemark}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em reg} & Address to write to. \\
+\hline
+\mbox{\tt in}  & {\em data} & Value to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 347 of file M\-L\-X90614.\-cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_m_l_x90614_a768925264f76f33f9bf98aec1cbec6a9}{\index{M\-L\-X90614@{M\-L\-X90614}!\-\_\-addr@{\-\_\-addr}}
+\index{\-\_\-addr@{\-\_\-addr}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::\-\_\-addr\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a768925264f76f33f9bf98aec1cbec6a9}
+Slave address 
+
+Definition at line 143 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_add210d34992507e8ccb753a040b14395}{\index{M\-L\-X90614@{M\-L\-X90614}!\-\_\-crc8@{\-\_\-crc8}}
+\index{\-\_\-crc8@{\-\_\-crc8}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{\-\_\-crc8}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::\-\_\-crc8\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_add210d34992507e8ccb753a040b14395}
+8 bit C\-R\-C 
+
+Definition at line 145 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a2526978eb988a8712baee6dca596be15}{\index{M\-L\-X90614@{M\-L\-X90614}!\-\_\-pec@{\-\_\-pec}}
+\index{\-\_\-pec@{\-\_\-pec}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{\-\_\-pec}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::\-\_\-pec\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a2526978eb988a8712baee6dca596be15}
+P\-E\-C 
+
+Definition at line 146 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a8c203cc9359c283d07682ba7dbcc5de3}{\index{M\-L\-X90614@{M\-L\-X90614}!\-\_\-rw\-Error@{\-\_\-rw\-Error}}
+\index{\-\_\-rw\-Error@{\-\_\-rw\-Error}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{\-\_\-rw\-Error}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-L\-X90614\-::\-\_\-rw\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_m_l_x90614_a8c203cc9359c283d07682ba7dbcc5de3}
+R/\-W error flags 
+
+Definition at line 144 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a66d99dc5778b514038c0fa5e25a722f1}{\index{M\-L\-X90614@{M\-L\-X90614}!bus\-Addr@{bus\-Addr}}
+\index{bus\-Addr@{bus\-Addr}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{bus\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}Property$<$uint8\-\_\-t, {\bf M\-L\-X90614}$>$ M\-L\-X90614\-::bus\-Addr}}\label{class_m_l_x90614_a66d99dc5778b514038c0fa5e25a722f1}
+S\-M\-Bus address property 
+
+Definition at line 121 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_aa13abb960da5f7d8d0eb26df8632a679}{\index{M\-L\-X90614@{M\-L\-X90614}!crc8@{crc8}}
+\index{crc8@{crc8}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{crc8}]{\setlength{\rightskip}{0pt plus 5cm}Property$<$uint8\-\_\-t, {\bf M\-L\-X90614}$>$ M\-L\-X90614\-::crc8}}\label{class_m_l_x90614_aa13abb960da5f7d8d0eb26df8632a679}
+8 bit C\-R\-C property 
+
+Definition at line 123 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_af050e02eecd12a127a98fb2b30e40a88}{\index{M\-L\-X90614@{M\-L\-X90614}!pec@{pec}}
+\index{pec@{pec}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{pec}]{\setlength{\rightskip}{0pt plus 5cm}Property$<$uint8\-\_\-t, {\bf M\-L\-X90614}$>$ M\-L\-X90614\-::pec}}\label{class_m_l_x90614_af050e02eecd12a127a98fb2b30e40a88}
+P\-E\-C property 
+
+Definition at line 124 of file M\-L\-X90614.\-h.
+
+\hypertarget{class_m_l_x90614_a13d10b57b4369c27e740585bf3907b0e}{\index{M\-L\-X90614@{M\-L\-X90614}!rw\-Error@{rw\-Error}}
+\index{rw\-Error@{rw\-Error}!MLX90614@{M\-L\-X90614}}
+\subsubsection[{rw\-Error}]{\setlength{\rightskip}{0pt plus 5cm}Property$<$uint8\-\_\-t, {\bf M\-L\-X90614}$>$ M\-L\-X90614\-::rw\-Error}}\label{class_m_l_x90614_a13d10b57b4369c27e740585bf3907b0e}
+R/\-W error flags property 
+
+Definition at line 122 of file M\-L\-X90614.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_l_x90614_8h}{M\-L\-X90614.\-h}\item 
+\hyperlink{_m_l_x90614_8cpp}{M\-L\-X90614.\-cpp}\end{DoxyCompactItemize}

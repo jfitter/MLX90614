@@ -1,37 +1,33 @@
-/*********************************************************************************************/
-/* Brief      Melexis MCX90614BAA Test Program - Sensor test implementation.                 */
-/* Details    Arduino test implementation of Melexis MCX90614 PIR temperature sensor driver. */
-/*                                                                                           */
-/* Note       THIS IS ONLY A PARTIAL RELEASE. THIS DEVICE CLASS IS CURRENTLY UNDERGOING      */
-/*            ACTIVE DEVELOPMENT AND IS STILL MISSING SOME IMPORTANT FEATURES. PLEASE KEEP   */
-/*            THIS IN MIND IF YOU DECIDE TO USE THIS PARTICULAR CODE FOR ANYTHING.           */
-/*                                                                                           */
-/* File       MelexisTest.ino                                                                */
-/* Author     J. F. Fitter <jfitter@eagleairaust.com.au>                                     */
-/* Version    1.0                                                                            */
-/* Date       2014-2015                                                                      */
-/* Copyright  Copyright (c) 2015 John Fitter.  All right reserved.                           */
-/*                                                                                           */
-/* License    GNU Public License. Permission is hereby granted, free of charge, to any       */
-/*            person obtaining a copy of this software and associated documentation files    */
-/*            (the "Software"), to deal in the Software without restriction, including       */
-/*            without limitation the rights to use, copy, modify, merge, publish, distribute,*/
-/*            sublicense, and/or sell copies of the Software, and to permit persons to whom  */
-/*            the Software is furnished to do so, subject to the following conditions:       */
-/*                                                                                           */
-/*            The above copyright notice and this permission notice shall be included in     */
-/*            all copies or substantial portions of the Software.                            */
-/*                                                                                           */
-/*            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     */
-/*            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       */
-/*            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    */
-/*            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         */
-/*            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  */
-/*            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN      */
-/*            THE SOFTWARE.                                                                  */
-/*                                                                                           */
-/*********************************************************************************************/
-
+/***********************************************************************************************//**
+ *  \brief      Melexis MCX90614BAA Test Program - Sensor test implementation.                
+ *  \details    Arduino test implementation of Melexis MCX90614 PIR temperature sensor driver.
+ *
+ *  \note       THIS IS ONLY A PARTIAL RELEASE. THIS DEVICE CLASS IS CURRENTLY UNDERGOING
+ *              ACTIVE DEVELOPMENT AND IS STILL MISSING SOME IMPORTANT FEATURES. PLEASE KEEP 
+ *              THIS IN MIND IF YOU DECIDE TO USE THIS PARTICULAR CODE FOR ANYTHING.
+ *
+ *  \file       MelexisTest.ino                                     
+ *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>          
+ *  \version    1.0                                                 
+ *  \date       2014-2017                                           
+ *  \copyright  Copyright (c) 2017 John Fitter.  All right reserved.
+ *
+ *  \par        License
+ *              This program is free software; you can redistribute it and/or modify it under
+ *              the terms of the GNU Lesser General Public License as published by the Free
+ *              Software Foundation; either version 2.1 of the License, or (at your option)
+ *              any later version.
+ *  \par
+ *              This Program is distributed in the hope that it will be useful, but WITHOUT ANY
+ *              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ *              PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details
+ *              at http://www.gnu.org/copyleft/gpl.html
+ *  \par
+ *              You should have received a copy of the GNU Lesser General Public License along
+ *              with this library; if not, write to the Free Software Foundation, Inc.,
+ *              51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ *//***********************************************************************************************/
 
 #define MELEXISTEST_C
 #define __STDC_LIMIT_MACROS
@@ -40,17 +36,16 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <MLX90614.h>
-#include "MelexisTest.h"
 #include "printf.h"
 
 MLX90614 mlx = MLX90614(MLX90614_BROADCASTADDR);      // *** must be only one device on bus ***
 
-/*********************************************************************************************/
-/* PROGRAM SETUP                                                                             */
-/*********************************************************************************************/
-
+/**
+ *  \brief  Program setup.
+ */
 void setup(void) {
 
+    Wire.begin(); // library does not do this by default
     Serial.begin(115200);
     printf_begin();
     mlx.begin();  
@@ -67,10 +62,9 @@ void setup(void) {
     Serial.println("");
 }
 
-/*********************************************************************************************/
-/* MAIN PROCESSING LOOP                                                                      */
-/*********************************************************************************************/
-
+/**
+ *  \brief  Main processing loop.
+ */
 void loop(void) {
     static uint16_t smpcount = 0, errcount = 0;
 
@@ -90,7 +84,11 @@ void loop(void) {
     delay(250);
 }
 
-// Print a line of temperature, crc, pec, and error string
+/**
+ *  \brief           Print a line of temperature, crc, pec, and error string.
+ *  \param [in] temp Temperature
+ *  \param [in] src  Temperature source
+ */
 void printlnTemp(double temp, char src) {
     char str[20];
 
@@ -107,7 +105,9 @@ void printlnTemp(double temp, char src) {
     Serial.println("");
 }
 
-// Print a complete memory dump of the EEPROM
+/**
+ *  \brief Print a complete memory dump of the EEPROM.
+ */
 void dumpEEProm() {
 
     Serial.println(F("EEProm Dump"));
@@ -119,17 +119,29 @@ void dumpEEProm() {
     }
 }
 
-// Utility to stringify a float
+/**
+ *  \brief          Utility to stringify a float.
+ *  \param [in] str String to receive converted result
+ *  \param [in] val Float value
+ *  \return         Float as string
+ */
 char* floatToStr(char *str, double val) {
 
     sprintf(str, "%4d.%02u", int(val), int(val * 100) % 100);
     return str;
 }
 
-// Just print the crc and pec
+/**
+ *  \brief          Just print the crc and pec.
+ *  \param [in] crc CRC
+ *  \param [in] pec PEC
+ */
 void printCRC(uint8_t crc, uint8_t pec) {printf("crc=%02Xh pec=%02Xh", crc, pec);}
 
-// Convert error flags to diagnostic strings and print
+/**
+ *  \brief          Convert error flags to diagnostic strings and print.
+ *  \param [in] err Error flags
+ */
 void printErrStr(uint8_t err) {
 
     Serial.print(F("  *** "));
@@ -147,11 +159,9 @@ void printErrStr(uint8_t err) {
     }
 }
 
-// Set EEPROM memory contents to factory default values.
-// A device with default adress must not be on the bus.
-// Only user allowed memory locations are written.
-
-// Default EEPROM data
+/**
+ *  \brief  EEPROM memory contents factory default values.
+ */
 const struct defaultEEPromData {
     uint8_t  address;
     uint16_t data;
@@ -159,6 +169,11 @@ const struct defaultEEPromData {
              {0x23, 0xF71C}, {0x24, 0xFFFF}, {0x25, 0x9FB4}, 
              {0x2E, 0xBE5A}, {0x2F, 0x0000}, {0x39, 0x0000}};
 
+/**
+ *  \brief    Set EEPROM memory contents to factory default values.
+    \remarks  A device with default adress must not be on the bus.
+    \n<tt>    Only user allowed memory locations are written.
+ */
 void setEEPromDefaults(void) {
 
     for(uint8_t i = 0; i < sizeof(eDat)/sizeof(defaultEEPromData),

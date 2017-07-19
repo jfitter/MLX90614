@@ -1,6 +1,5 @@
-/*********************************************************************************************/
-/**
- *  \brief      Melexis MCX90614 Family Device Driver Library - CPP Source file
+/***********************************************************************************************//**
+ *  \brief      Melexis MLX90614 Family Device Driver Library - CPP Source file
  *  \details    Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
  *  \li         The current implementation does not manage PWM (only digital data by I2C).
  *  \li         Sleep mode is not implemented yet.
@@ -12,72 +11,72 @@
  *  \file       MLX90614.CPP
  *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>
  *  \version    1.0
- *  \date       2014-2015
- *  \copyright  Copyright (c) 2015 John Fitter.  All right reserved.
+ *  \date       2014-2017
+ *  \copyright  Copyright (c) 2017 John Fitter.  All right reserved.
  *
- *  \par License
- *             GNU Public License. Permission is hereby granted, free of charge, to any
- *             person obtaining a copy of this software and associated documentation files
- *             (the "Software"), to deal in the Software without restriction, including
- *             without limitation the rights to use, copy, modify, merge, publish, distribute,
- *             sublicense, and/or sell copies of the Software, and to permit persons to whom
- *             the Software is furnished to do so, subject to the following conditions:
+ *  \par        License
+ *              This program is free software; you can redistribute it and/or modify it under
+ *              the terms of the GNU Lesser General Public License as published by the Free
+ *              Software Foundation; either version 2.1 of the License, or (at your option)
+ *              any later version.
  *  \par
- *              The above copyright notice and this permission notice shall be included in
- *              all copies or substantial portions of the Software.
+ *              This Program is distributed in the hope that it will be useful, but WITHOUT ANY
+ *              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ *              PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details
+ *              at http://www.gnu.org/copyleft/gpl.html
  *  \par
- *              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *              IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *              FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *              AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *              LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *              OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *              THE SOFTWARE.
+ *              You should have received a copy of the GNU Lesser General Public License along
+ *              with this library; if not, write to the Free Software Foundation, Inc.,
+ *              51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- *********************************************************************************************/
+ *//***********************************************************************************************/
 
 #include "MLX90614.h"
 
-/*********************************************************************************************/
-/*  MLX90614 Device class functions.                                                         */
-/*********************************************************************************************/
+/**************************************************************************************************/
+/*  MLX90614 Device class functions.                                                              */
+/**************************************************************************************************/
 
 /**
  *  \brief               MLX90614 Device class constructor.
  *  \param [in] i2caddr  Device address (default: published value).
  */
 MLX90614::MLX90614(uint8_t i2caddr) {
+
+    busAddr.Set_Class(this);
+    busAddr.Set_Get(&MLX90614::getAddr);
+    busAddr.Set_Set(&MLX90614::setAddr);
+
     rwError.Set_Class(this);
-    rwError.Set_Get( &MLX90614::getRwError);
-    _rwError = 0;
+    rwError.Set_Get(&MLX90614::getRwError);
 
     pec.Set_Class(this);
-    pec.Set_Get( &MLX90614::getPEC);
-    _pec = 0;
+    pec.Set_Get(&MLX90614::getPEC);
 
     crc8.Set_Class(this);
-    crc8.Set_Get( &MLX90614::getCRC8);
-//  crc8.Set_Set( &MLX90614::setCRC8);  // template for setter
-    _crc8 = 0;
+    crc8.Set_Get(&MLX90614::getCRC8);
 
     _addr = i2caddr;
+    _ready = false;
 }
 
 /**
  *  \brief  Initialize the device and the i2c interface.
  */
 boolean MLX90614::begin(void) {
-    Wire.begin();
-    return true;
+
+    _rwError = _pec = _crc8 = 0;
+    return _ready = true;
 }
 
 /**
  *  \brief             Return a temperature from the specified source in specified units.
- *  \li                Teperature is stored in ram as a 16 bit absolute value to a resolution of 0.02K
+ *  \remarks
+ *  \li                Temperature is stored in ram as a 16 bit absolute value to a resolution of 0.02K
  *  \li                Linearized sensor die temperature is available as Ta (ambient).
  *  \li                One or two object temperatures are linearized to the range -38.2C...125C
- *  \param [in] tsrc   Internal temperature source to read.
- *  \param [in] tunit  Temperature units to convert raw data to.
+ *  \param [in] tsrc   Internal temperature source to read, default #1.
+ *  \param [in] tunit  Temperature units to convert raw data to, default deg Celsius.
  *  \return            Temperature.
  */
 double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
@@ -85,8 +84,8 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
 
     _rwError = 0;
     switch(tsrc) {
-        case    MLX90614_SRCO1 : temp = read16(MLX90614_TOBJ1); break;
-        case    MLX90614_SRCO2 : temp = read16(MLX90614_TOBJ2); break;
+        case    MLX90614_SRC01 : temp = read16(MLX90614_TOBJ1); break;
+        case    MLX90614_SRC02 : temp = read16(MLX90614_TOBJ2); break;
         default : temp = read16(MLX90614_TA);
     }
     temp *= 0.02;
@@ -99,21 +98,34 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
 
 /**
  *  \brief             Set the emissivity of the object.
- *  \details           The emissivity is stored as a 16 bit integer defined by the following:
+ *  \remarks           The emissivity is stored as a 16 bit integer defined by the following:
  *  \n<tt>             emissivity = dec2hex[round(65535 x emiss)]</tt>
  *  \param [in] emiss  Physical emissivity value in range 0.1 ...1.0, default 1.0
  */
-void MLX90614::setEmissivity(float emiss = 1.0) {
+void MLX90614::setEmissivity(float emiss) {
 
     _rwError = 0;
-    uint16_t e = int(emiss * 65535 + 0.5);
+    uint16_t e = int(emiss * 65535. + 0.5);
     if((emiss > 1.0) || (e < 6553)) _rwError |= MLX90614_INVALIDATA;
     else writeEEProm(MLX90614_EMISS, e);
+}
+/**
+ *  \brief             Get the emissivity of the object.
+ *  \remarks           The emissivity is stored as a 16 bit integer defined by the following:
+ *  \n<tt>             emissivity = dec2hex[round(65535 x emiss)]</tt>
+ *  \return            Physical emissivity value in range 0.1 ...1.0
+ */
+float MLX90614::getEmissivity(void) {
+
+    _rwError = 0;
+    uint16_t emiss = readEEProm(MLX90614_EMISS);
+    if(_rwError) return (float)1.0;
+    return (float)emiss / 65535.0;
 }
 
 /**
  *  \brief            Set the coefficients of the IIR digital filter.
- *  \details          The IIR digital filter coefficients are set by the LS 3 bits of ConfigRegister1
+ *  \remarks          The IIR digital filter coefficients are set by the LS 3 bits of ConfigRegister1
  *  \n                The value of the coefficients is set as follows: 
  *  \n <tt> \verbatim
  csb = 0   a1 = 0.5    a2 = 0.5
@@ -126,7 +138,7 @@ void MLX90614::setEmissivity(float emiss = 1.0) {
        7        0.57        0.43 \endverbatim </tt>
  *  \param [in] csb   See page 12 of datasheet. Range 0...7, default = 4 (IIR bypassed)
  */
-void MLX90614::setIIRcoeff(uint8_t csb = 4) {
+void MLX90614::setIIRcoeff(uint8_t csb) {
 
     _rwError = 0;
 
@@ -145,13 +157,29 @@ void MLX90614::setIIRcoeff(uint8_t csb = 4) {
 }
 
 /**
+ *  \brief            Get the coefficients of the IIR digital filter.
+ *  \remarks          The IIR digital filter coefficients are set by the LS 3 bits of ConfigRegister1
+ *  \return           Filter coefficient table index. Range 0...7
+ */
+uint8_t MLX90614::getIIRcoeff(void) {
+
+    _rwError = 0;
+
+    // get the current value of ConfigRegister1 bits 2:0
+    uint8_t iir = readEEProm(MLX90614_CONFIG) & 7;
+
+    if(_rwError) return 4;
+    return iir;
+}
+
+/**
  *  \brief            Set the coefficients of the FIR digital filter.
- *  \details          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
+ *  \remarks          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
  *  \n                The value of N is set as follows:  <tt>N = 2 ^ (csb + 3)</tt>
     \n                The manufacturer does not recommend <tt>N < 128</tt>
  *  \param [in] csb   See page 12 of datasheet. Range 0...7, default = 7 (N = 1024)
  */
-void MLX90614::setFIRcoeff(uint8_t csb = 7) {
+void MLX90614::setFIRcoeff(uint8_t csb) {
 
     _rwError = 0;
 
@@ -170,12 +198,31 @@ void MLX90614::setFIRcoeff(uint8_t csb = 7) {
 }
 
 /**
+ *  \brief            Get the coefficients of the FIR digital filter.
+ *  \remarks          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
+ *  \n                The value of N is set as follows:  <tt>N = 2 ^ (csb + 3)</tt>
+    \n                The manufacturer does not recommend <tt>N < 128</tt>
+ *  \param [in] csb   See page 12 of datasheet. Range 0...7
+ */
+uint8_t MLX90614::getFIRcoeff(void) {
+
+    _rwError = 0;
+
+    // get the current value of ConfigRegister1 bits 10:8
+    uint8_t fir = (readEEProm(MLX90614_CONFIG) >> 8) & 7;
+
+    if(_rwError) return 7;
+    return fir;
+}
+
+/**
  *  \brief            Set device SMBus address.
+ *  \remarks
  *  \li               Must be only device on the bus.
  *  \li               Must power cycle the device after changing address.
- *  \param [in] a     New device address. Range 1...127, default = 0x5a
+ *  \param [in] a     New device address. Range 1...127
  */
-void MLX90614::setSMBusAddr(uint8_t addr = MLX90614_I2CDEFAULTADDR) {
+void MLX90614::setAddr(uint8_t addr) {
 
     _rwError = 0;
 
@@ -185,16 +232,18 @@ void MLX90614::setSMBusAddr(uint8_t addr = MLX90614_I2CDEFAULTADDR) {
     if(addr &= 0x7f) {
         _addr = 0;
         writeEEProm(MLX90614_ADDR, addr);
+        _addr = addr;
     } else _rwError |= MLX90614_INVALIDATA;
 }
 
 /**
  *  \brief            Return the device SMBus address.
+ *  \remarks
  *  \li               Must be only device on the bus.
  *  \li               Sets the library to use the new found address.
  *  \return           Device address.
  */
-uint8_t MLX90614::getSMBusAddr(void) {
+uint8_t MLX90614::getAddr(void) {
     uint8_t tempAddr = _addr;
 
     _rwError = 0;
@@ -277,7 +326,7 @@ void MLX90614::write16(uint8_t cmd, uint16_t data) {
 
     // then write the crc and set the error status bits
     Wire.write(_pec = _crc8);
-    _rwError |= (1 << Wire.endTransmission(false)) >> 1;
+    _rwError |= (1 << Wire.endTransmission(false)) >> 1;      // fixed 19jul17 - changed from "true"
 }
 
 /**
@@ -289,6 +338,7 @@ uint16_t MLX90614::readEEProm(uint8_t addr) {return read16(addr | 0x20);}
 
 /**
  *  \brief            Write a 16 bit value to EEPROM after first clearing the memory.
+ *  \remarks
  *  \li               Erase and write time 5ms per manufacturer specification
  *  \li               Manufacturer does not specify max or min erase/write times
  *  \param [in] reg   Address to write to.
@@ -341,6 +391,7 @@ double MLX90614::convCtoF(double degC) {return (degC * 9. / 5.) + 32.;}
 uint64_t MLX90614::readID(void) {
     uint64_t ID = 0;
 
+    // if we are lucky the compiler will optimise this
     for(uint8_t i = 0; i < 4; i++) ID = (ID <<= 16) | readEEProm(MLX90614_ID1 + i);
     return ID;
 }

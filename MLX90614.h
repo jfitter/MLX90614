@@ -1,9 +1,8 @@
 #ifndef _MLX90614_H_
 #define _MLX90614_H_
 
-/*********************************************************************************************/
-/**
- *  \brief      Melexis MCX90614 Family Device Driver Library - CPP Header file
+/***********************************************************************************************//**
+ *  \brief      Melexis MLX90614 Family Device Driver Library - CPP Header file
  *  \details    Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
  *  \li         The current implementation does not manage PWM (only digital data by I2C).
  *  \li         Sleep mode is not implemented yet.
@@ -15,42 +14,38 @@
  *  \file       MLX90614.H
  *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>
  *  \version    1.0
- *  \date       2014-2015
- *  \copyright  Copyright (c) 2015 John Fitter.  All right reserved.
+ *  \date       2014-2017
+ *  \copyright  Copyright (c) 2017 John Fitter.  All right reserved.
  *
- *  \par License
- *             GNU Public License. Permission is hereby granted, free of charge, to any
- *             person obtaining a copy of this software and associated documentation files
- *             (the "Software"), to deal in the Software without restriction, including
- *             without limitation the rights to use, copy, modify, merge, publish, distribute,
- *             sublicense, and/or sell copies of the Software, and to permit persons to whom
- *             the Software is furnished to do so, subject to the following conditions:
+ *  \par        License
+ *              This program is free software; you can redistribute it and/or modify it under
+ *              the terms of the GNU Lesser General Public License as published by the Free
+ *              Software Foundation; either version 2.1 of the License, or (at your option)
+ *              any later version.
  *  \par
- *              The above copyright notice and this permission notice shall be included in
- *              all copies or substantial portions of the Software.
+ *              This Program is distributed in the hope that it will be useful, but WITHOUT ANY
+ *              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ *              PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details
+ *              at http://www.gnu.org/copyleft/gpl.html
  *  \par
- *              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *              IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *              FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *              AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *              LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *              OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *              THE SOFTWARE.
+ *              You should have received a copy of the GNU Lesser General Public License along
+ *              with this library; if not, write to the Free Software Foundation, Inc.,
+ *              51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- *********************************************************************************************/
+ *//***********************************************************************************************/
 
 #if (ARDUINO >= 100)
     #include "Arduino.h"
 #else
     #include "WProgram.h"
 #endif
-#include "Wire.h"
+#include <Wire.h>
 #include "Property.h"
 #include "Crc8.h"
 
-/*********************************************************************************************/
-/* Definitions                                                                               */
-/*********************************************************************************************/
+/**************************************************************************************************/
+/* Definitions                                                                                    */
+/**************************************************************************************************/
 
 #define MLX90614_I2CDEFAULTADDR 0x5A    /**< Device default slave address */
 #define MLX90614_BROADCASTADDR  0       /**< Device broadcast slave address */
@@ -97,30 +92,33 @@
 #define MLX90614_EECORRUPT      0x40    /**< R/W error bitmask - The EEProm is likely to be corrupted */
 #define MLX90614_RFLGERR        0x80    /**< R/W error bitmask - R/W flags register access error */
 
-/*********************************************************************************************/
-/* MLX90614 Device class.                                                                    */
-/*********************************************************************************************/
+/**************************************************************************************************/
+/* MLX90614 Device class.                                                                         */
+/**************************************************************************************************/
 
 class MLX90614 {
 public:
-    MLX90614(uint8_t addr = MLX90614_I2CDEFAULTADDR);
+    MLX90614(uint8_t i2caddr = MLX90614_I2CDEFAULTADDR);
 
     boolean  begin();
-    uint64_t readID(void);
+    boolean  isReady(void) { return _ready; };
+    uint64_t readID(void);                                  /**< Chip ID getter */
 
-    void     setEmissivity(float emiss);
-    void     setIIRcoeff(uint8_t csb);
-    void     setFIRcoeff(uint8_t csb);
+    uint8_t  getIIRcoeff(void);                             /**< IIR coefficient getter */
+    uint8_t  getFIRcoeff(void);                             /**< IIR coefficient getter */
+    float    getEmissivity(void);                           /**< Emissivity getter */
+                                 
+    void     setIIRcoeff(uint8_t csb = 4);                  /**< IIR coefficient setter */
+    void     setFIRcoeff(uint8_t csb = 7);                  /**< IIR coefficient setter */
+    void     setEmissivity(float emiss = 1.0);              /**< Emissivity setter */
 
-    uint8_t  getSMBusAddr(void);
-    void     setSMBusAddr(uint8_t addr);
+    uint16_t readEEProm(uint8_t);
+    void     writeEEProm(uint8_t, uint16_t);
 
-    uint16_t readEEProm(uint8_t addr);
-    void     writeEEProm(uint8_t reg, uint16_t data);
-
-    Property<uint8_t, MLX90614> rwError;                    /**< R/W error flags getter */
-    Property<uint8_t, MLX90614> crc8;                       /**< 8 bit CRC getter */
-    Property<uint8_t, MLX90614> pec;                        /**< PEC getter */
+    Property<uint8_t, MLX90614> busAddr;                    /**< SMBus address property */
+    Property<uint8_t, MLX90614> rwError;                    /**< R/W error flags property */
+    Property<uint8_t, MLX90614> crc8;                       /**< 8 bit CRC property */
+    Property<uint8_t, MLX90614> pec;                        /**< PEC property */
 
     /** Enumerations for temperature units. */
     enum tempUnit_t {MLX90614_TK,                           /**< degrees Kelvin */
@@ -129,28 +127,31 @@ public:
     };
     /** Enumerations for temperature measurement source. */
     enum tempSrc_t  {MLX90614_SRCA,                         /**< Chip (ambient) sensor */
-                     MLX90614_SRCO1,                        /**< IR source #1 */
-                     MLX90614_SRCO2                         /**< IR source #2 */
+                     MLX90614_SRC01,                        /**< IR source #1 */
+                     MLX90614_SRC02                         /**< IR source #2 */
                     };
 
-    double   readTemp(tempSrc_t tsrc, tempUnit_t tunit);
-    double   convKtoC(double degK);
-    double   convCtoF(double degC);
+    double   readTemp(tempSrc_t = MLX90614_SRC01, tempUnit_t = MLX90614_TC);
+    double   convKtoC(double);
+    double   convCtoF(double);
 
 private:
-    uint8_t  _rwError;                                      /**< R/W error flags (private copyl) */
-    uint8_t  _crc8;                                         /**< 8 bit CRC (private copy) */
-    uint8_t _pec;                                           /**< PEC (private copy) */
-    uint8_t  _addr;                                         /**< Slave address (private copy) */
+    boolean  _ready;
+    uint8_t  _addr;                                         /**< Slave address */
+    uint8_t  _rwError;                                      /**< R/W error flags */
+    uint8_t  _crc8;                                         /**< 8 bit CRC */
+    uint8_t  _pec;                                          /**< PEC */
 
-    float    readTemp(uint8_t reg);
-    uint16_t read16(uint8_t cmd);
-    void     write16(uint8_t cmd, uint16_t data);
+    uint16_t read16(uint8_t);
+    void     write16(uint8_t, uint16_t);
 
-    uint8_t  getRwError()       {return _rwError;}          /**< R/W error flags getter */
-    uint8_t  getCRC8()          {return _crc8;};            /**< 8 bit CRC getter */
-    uint8_t  getPEC()           {return _pec;};             /**< PEC getter */
-//  void     setCRC8(uint8_t v) {_crc8 = v;}  // template for setter
+    uint8_t  getRwError(void)   {return _rwError;}          /**< R/W error flags getter */
+    uint8_t  getCRC8(void)      {return _crc8;}             /**< 8 bit CRC getter */
+    uint8_t  getPEC(void)       {return _pec;}              /**< PEC getter */
+
+    uint8_t  getAddr(void);                                 /**< SMB bus address getter */
+    void     setAddr(uint8_t);                              /**< SMB bus address setter */
+
 };
 
 #endif /* _MLX90614_H_ */

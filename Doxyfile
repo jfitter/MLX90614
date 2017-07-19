@@ -51,14 +51,14 @@ PROJECT_BRIEF          = "MLX90614 Device Driver Arduino Library"
 # and the maximum width should not exceed 200 pixels. Doxygen will copy the logo
 # to the output directory.
 
-PROJECT_LOGO           = C:/Users/jfitter/Documents/Arduino/libraries/MLX90614/MLX90614_ChipPic_55x200.jpg
+PROJECT_LOGO           = D:/Users/jfitter/Documents/GitHub/MLX90614/MLX90614_ChipPic_55x200.jpg
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = C:/Users/jfitter/Documents/Arduino/libraries/MLX90614
+OUTPUT_DIRECTORY       = D:/Users/jfitter/Documents/GitHub/MLX90614
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -749,10 +749,11 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:/Users/jfitter/Documents/Arduino/libraries/MLX90614/MLX90614.cpp \
-                         C:/Users/jfitter/Documents/Arduino/libraries/MLX90614/MLX90614.h \
-                         C:/Users/jfitter/Documents/Arduino/libraries/MLX90614/Crc8.cpp \
-                         C:/Users/jfitter/Documents/Arduino/libraries/MLX90614/Crc8.h
+INPUT                  = D:/Users/jfitter/Documents/GitHub/MLX90614/MLX90614.cpp \
+                         D:/Users/jfitter/Documents/GitHub/MLX90614/MLX90614.h \
+                         D:/Users/jfitter/Documents/GitHub/MLX90614/Crc8.cpp \
+                         D:/Users/jfitter/Documents/GitHub/MLX90614/Crc8.h \
+                         examples/mlxtest/MelexisTest.ino
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -861,7 +862,7 @@ EXCLUDE_SYMBOLS        =
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = examples
+EXAMPLE_PATH           = 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
@@ -1275,7 +1276,7 @@ GENERATE_HTMLHELP      = YES
 # written to the html output directory.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-CHM_FILE               = C:\Users\jfitter\Documents\Arduino\libraries\MLX90614\MLX90614.chm
+CHM_FILE               = MLX90614.chm
 
 # The HHC_LOCATION tag can be used to specify the location (absolute path
 # including file name) of the HTML help compiler ( hhc.exe). If non-empty
@@ -1609,7 +1610,7 @@ EXTRA_SEARCH_MAPPINGS  =
 # If the GENERATE_LATEX tag is set to YES doxygen will generate LaTeX output.
 # The default value is: YES.
 
-GENERATE_LATEX         = NO
+GENERATE_LATEX         = YES
 
 # The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of

@@ -1,0 +1,206 @@
+\hypertarget{_melexis_test_8ino}{\section{examples/mlxtest/\-Melexis\-Test.ino File Reference}
+\label{_melexis_test_8ino}\index{examples/mlxtest/\-Melexis\-Test.\-ino@{examples/mlxtest/\-Melexis\-Test.\-ino}}
+}
+
+
+Melexis M\-C\-X90614\-B\-A\-A Test Program -\/ Sensor test implementation.  
+
+
+{\ttfamily \#include $<$Arduino.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include $<$M\-L\-X90614.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}printf.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdefault_e_e_prom_data}{default\-E\-E\-Prom\-Data}
+\begin{DoxyCompactList}\small\item\em E\-E\-P\-R\-O\-M memory contents factory default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_melexis_test_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{void \hyperlink{_melexis_test_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)}\label{_melexis_test_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}
+
+\begin{DoxyCompactList}\small\item\em Program setup. \end{DoxyCompactList}\item 
+\hypertarget{_melexis_test_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{void \hyperlink{_melexis_test_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop} (void)}\label{_melexis_test_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}
+
+\begin{DoxyCompactList}\small\item\em Main processing loop. \end{DoxyCompactList}\item 
+void \hyperlink{_melexis_test_8ino_a3906dd03c261bb9c83de87b9988e91ce}{println\-Temp} (double temp, char src)
+\begin{DoxyCompactList}\small\item\em Print a line of temperature, crc, pec, and error string. \end{DoxyCompactList}\item 
+\hypertarget{_melexis_test_8ino_adf7e43c01edc71026fd6c122cf408817}{void \hyperlink{_melexis_test_8ino_adf7e43c01edc71026fd6c122cf408817}{dump\-E\-E\-Prom} ()}\label{_melexis_test_8ino_adf7e43c01edc71026fd6c122cf408817}
+
+\begin{DoxyCompactList}\small\item\em Print a complete memory dump of the E\-E\-P\-R\-O\-M. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_melexis_test_8ino_abbd67db9a56c14f56c98c750daf1ab92}{float\-To\-Str} (char $\ast$str, double val)
+\begin{DoxyCompactList}\small\item\em Utility to stringify a float. \end{DoxyCompactList}\item 
+void \hyperlink{_melexis_test_8ino_a9ca1a07ce803c9b09a05b991f0101107}{print\-C\-R\-C} (uint8\-\_\-t crc, uint8\-\_\-t pec)
+\begin{DoxyCompactList}\small\item\em Just print the crc and pec. \end{DoxyCompactList}\item 
+void \hyperlink{_melexis_test_8ino_a47075beca8233f9f8e9614f4fb6eabd1}{print\-Err\-Str} (uint8\-\_\-t err)
+\begin{DoxyCompactList}\small\item\em Convert error flags to diagnostic strings and print. \end{DoxyCompactList}\item 
+void \hyperlink{_melexis_test_8ino_a5662aecfa23cb7ad365b8246e928c843}{set\-E\-E\-Prom\-Defaults} (void)
+\begin{DoxyCompactList}\small\item\em Set E\-E\-P\-R\-O\-M memory contents to factory default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_melexis_test_8ino_af12b22cf7e5666147279557c9b55db66}{\hyperlink{class_m_l_x90614}{M\-L\-X90614} {\bfseries mlx} = \hyperlink{class_m_l_x90614}{M\-L\-X90614}(\hyperlink{_m_l_x90614_8h_afc35f075f26585b4d971069e63c21c12}{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R})}\label{_melexis_test_8ino_af12b22cf7e5666147279557c9b55db66}
+
+\item 
+const struct \hyperlink{structdefault_e_e_prom_data}{default\-E\-E\-Prom\-Data} {\bfseries e\-Dat} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Melexis M\-C\-X90614\-B\-A\-A Test Program -\/ Sensor test implementation. Arduino test implementation of Melexis M\-C\-X90614 P\-I\-R temperature sensor driver.
+
+\begin{DoxyNote}{Note}
+T\-H\-I\-S I\-S O\-N\-L\-Y A P\-A\-R\-T\-I\-A\-L R\-E\-L\-E\-A\-S\-E. T\-H\-I\-S D\-E\-V\-I\-C\-E C\-L\-A\-S\-S I\-S C\-U\-R\-R\-E\-N\-T\-L\-Y U\-N\-D\-E\-R\-G\-O\-I\-N\-G A\-C\-T\-I\-V\-E D\-E\-V\-E\-L\-O\-P\-M\-E\-N\-T A\-N\-D I\-S S\-T\-I\-L\-L M\-I\-S\-S\-I\-N\-G S\-O\-M\-E I\-M\-P\-O\-R\-T\-A\-N\-T F\-E\-A\-T\-U\-R\-E\-S. P\-L\-E\-A\-S\-E K\-E\-E\-P T\-H\-I\-S I\-N M\-I\-N\-D I\-F Y\-O\-U D\-E\-C\-I\-D\-E T\-O U\-S\-E T\-H\-I\-S P\-A\-R\-T\-I\-C\-U\-L\-A\-R C\-O\-D\-E F\-O\-R A\-N\-Y\-T\-H\-I\-N\-G.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+J. F. Fitter \href{mailto:jfitter@eagleairaust.com.au}{\tt jfitter@eagleairaust.\-com.\-au} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2014-\/2017 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2017 John Fitter. All right reserved.
+\end{DoxyCopyright}
+\begin{DoxyParagraph}{License}
+This program is free software; you can redistribute it and/or modify it under the terms of the G\-N\-U Lesser General Public License as published by the Free Software Foundation; either version 2.\-1 of the License, or (at your option) any later version. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+This Program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U Lesser General Public License for more details at \href{http://www.gnu.org/copyleft/gpl.html}{\tt http\-://www.\-gnu.\-org/copyleft/gpl.\-html} 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+You should have received a copy of the G\-N\-U Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, M\-A 02110-\/1301 U\-S\-A 
+\end{DoxyParagraph}
+
+
+Definition in file \hyperlink{_melexis_test_8ino_source}{Melexis\-Test.\-ino}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_melexis_test_8ino_abbd67db9a56c14f56c98c750daf1ab92}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!float\-To\-Str@{float\-To\-Str}}
+\index{float\-To\-Str@{float\-To\-Str}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{float\-To\-Str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ float\-To\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}}\label{_melexis_test_8ino_abbd67db9a56c14f56c98c750daf1ab92}
+
+
+Utility to stringify a float. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & String to receive converted result \\
+\hline
+\mbox{\tt in}  & {\em val} & Float value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Float as string 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file Melexis\-Test.\-ino.
+
+\hypertarget{_melexis_test_8ino_a9ca1a07ce803c9b09a05b991f0101107}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!print\-C\-R\-C@{print\-C\-R\-C}}
+\index{print\-C\-R\-C@{print\-C\-R\-C}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{print\-C\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}void print\-C\-R\-C (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{crc, }
+\item[{uint8\-\_\-t}]{pec}
+\end{DoxyParamCaption}
+)}}\label{_melexis_test_8ino_a9ca1a07ce803c9b09a05b991f0101107}
+
+
+Just print the crc and pec. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em crc} & C\-R\-C \\
+\hline
+\mbox{\tt in}  & {\em pec} & P\-E\-C \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file Melexis\-Test.\-ino.
+
+\hypertarget{_melexis_test_8ino_a47075beca8233f9f8e9614f4fb6eabd1}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!print\-Err\-Str@{print\-Err\-Str}}
+\index{print\-Err\-Str@{print\-Err\-Str}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{print\-Err\-Str}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Err\-Str (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{err}
+\end{DoxyParamCaption}
+)}}\label{_melexis_test_8ino_a47075beca8233f9f8e9614f4fb6eabd1}
+
+
+Convert error flags to diagnostic strings and print. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em err} & Error flags \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file Melexis\-Test.\-ino.
+
+\hypertarget{_melexis_test_8ino_a3906dd03c261bb9c83de87b9988e91ce}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!println\-Temp@{println\-Temp}}
+\index{println\-Temp@{println\-Temp}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{println\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}void println\-Temp (
+\begin{DoxyParamCaption}
+\item[{double}]{temp, }
+\item[{char}]{src}
+\end{DoxyParamCaption}
+)}}\label{_melexis_test_8ino_a3906dd03c261bb9c83de87b9988e91ce}
+
+
+Print a line of temperature, crc, pec, and error string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em temp} & Temperature \\
+\hline
+\mbox{\tt in}  & {\em src} & Temperature source \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 92 of file Melexis\-Test.\-ino.
+
+\hypertarget{_melexis_test_8ino_a5662aecfa23cb7ad365b8246e928c843}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!set\-E\-E\-Prom\-Defaults@{set\-E\-E\-Prom\-Defaults}}
+\index{set\-E\-E\-Prom\-Defaults@{set\-E\-E\-Prom\-Defaults}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{set\-E\-E\-Prom\-Defaults}]{\setlength{\rightskip}{0pt plus 5cm}void set\-E\-E\-Prom\-Defaults (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_melexis_test_8ino_a5662aecfa23cb7ad365b8246e928c843}
+
+
+Set E\-E\-P\-R\-O\-M memory contents to factory default values. 
+
+\begin{DoxyRemark}{Remarks}
+A device with default adress must not be on the bus. \par
+{\ttfamily  Only user allowed memory locations are written. }
+\end{DoxyRemark}
+
+
+Definition at line 177 of file Melexis\-Test.\-ino.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_melexis_test_8ino_aa749b7d2a476c21158b27ed53cdcbc49}{\index{Melexis\-Test.\-ino@{Melexis\-Test.\-ino}!e\-Dat@{e\-Dat}}
+\index{e\-Dat@{e\-Dat}!MelexisTest.ino@{Melexis\-Test.\-ino}}
+\subsubsection[{e\-Dat}]{\setlength{\rightskip}{0pt plus 5cm}const struct {\bf default\-E\-E\-Prom\-Data}  e\-Dat\mbox{[}$\,$\mbox{]}}}\label{_melexis_test_8ino_aa749b7d2a476c21158b27ed53cdcbc49}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=  \{\{0x20, 0x9993\}, \{0x21, 0x62E3\}, \{0x22, 0x0201\}, 
+             \{0x23, 0xF71C\}, \{0x24, 0xFFFF\}, \{0x25, 0x9FB4\}, 
+             \{0x2E, 0xBE5A\}, \{0x2F, 0x0000\}, \{0x39, 0x0000\}\}
+\end{DoxyCode}

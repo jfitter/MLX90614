@@ -1,0 +1,353 @@
+\hypertarget{_m_l_x90614_8h}{\section{M\-L\-X90614.\-h File Reference}
+\label{_m_l_x90614_8h}\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}}
+}
+
+
+Melexis \hyperlink{class_m_l_x90614}{M\-L\-X90614} Family Device Driver Library -\/ C\-P\-P Header file.  
+
+
+{\ttfamily \#include \char`\"{}W\-Program.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Property.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Crc8.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_m_l_x90614}{M\-L\-X90614}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a4814993dbb3667d65ff70fe5c9f76858}{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R}~0x5\-A
+\item 
+\#define \hyperlink{_m_l_x90614_8h_afc35f075f26585b4d971069e63c21c12}{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R}~0
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a1ed8b42041518a3ef52a7283211ac1f5}{M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y}~7
+\item 
+\#define \hyperlink{_m_l_x90614_8h_af32948c76dba5dacaa67850cc9f2d09e}{M\-L\-X90614\-\_\-\-X\-D\-L\-Y}~25
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ad4daa265652b71ebc0cd7ae384c65023}{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1}~0x04
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a94a0e96818a3088dc493d5b16142f5be}{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2}~0x05
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a0f608580f8b2dd959d8bb0d86667c020}{M\-L\-X90614\-\_\-\-T\-A}~0x06
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a7587dcdf93ae7a9bf6eb19c614803bf1}{M\-L\-X90614\-\_\-\-T\-O\-B\-J1}~0x07
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ac24503f3293ee99de008b77cd4f3ee8b}{M\-L\-X90614\-\_\-\-T\-O\-B\-J2}~0x08
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a19795df7252a8fca050c35230d4cd892}{M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X}~0x00
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a0b2c357b88f71301dd7813757d5620bd}{M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N}~0x01
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ae2939d24d471b231e443ba49dd3abd09}{M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L}~0x02
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a72caf2736d9208fa5f9343bd6eb537f7}{M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E}~0x03
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a7b4d8132a55109992b0cd3a7ecd3923e}{M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S}~0x04
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a6ed9e9c217b391092fd5aa843688b6b8}{M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G}~0x05
+\item 
+\#define \hyperlink{_m_l_x90614_8h_af57cd108cf3cd4e21dc471263b2236ec}{M\-L\-X90614\-\_\-\-A\-D\-D\-R}~0x0\-E
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ab9d92fa5fa4e1fd97640fbde9b3980e1}{M\-L\-X90614\-\_\-\-I\-D1}~0x1\-C
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ae62eec269f911044a1f4c07d83b8e8a3}{M\-L\-X90614\-\_\-\-I\-D2}~0x1\-D
+\item 
+\#define \hyperlink{_m_l_x90614_8h_acbb3fce06a09175246f8591c4749d2d6}{M\-L\-X90614\-\_\-\-I\-D3}~0x1\-E
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a91fc995e03195b4f294172a05bcb134b}{M\-L\-X90614\-\_\-\-I\-D4}~0x1\-F
+\item 
+\#define \hyperlink{_m_l_x90614_8h_afc27e294e00ad29fa1fc89e52893e129}{M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D}~0x\-F0
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a6a7d44c7d11461fcc22ce2abf373c4b5}{M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y}~0x80
+\item 
+\#define \hyperlink{_m_l_x90614_8h_ad0eb9d37bfb1a51f60ee5c8de5a66900}{M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D}~0x20
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a159318e56d224e102eefbc8d20427877}{M\-L\-X90614\-\_\-\-I\-N\-I\-T}~0x10
+\item 
+\#define \hyperlink{_m_l_x90614_8h_abf76051d9671540092cc919e70e434e4}{M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S}~0
+\item 
+\#define \hyperlink{_m_l_x90614_8h_af24756c6409f835d6a16cd272c4070cd}{M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G}~1
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a1cd57fb943d4f51f84014b42fac9c7e0}{M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K}~2
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a668abcf4d4d58b1fb61b44b8775e0f4b}{M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K}~4
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a9762acdee75ff42d67df672381bfb482}{M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R}~8
+\item 
+\#define \hyperlink{_m_l_x90614_8h_aeff5f43e3a0aab6b1b649916f1ca2584}{M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C}~0x10
+\item 
+\#define \hyperlink{_m_l_x90614_8h_a6d1d12ae182d43f3890c84d08e3147d1}{M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A}~0x20
+\item 
+\#define \hyperlink{_m_l_x90614_8h_aa45966c4b6e90fb1d5b8e1597c54ae4d}{M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T}~0x40
+\item 
+\#define \hyperlink{_m_l_x90614_8h_abdb64a9bc664fa200565a877eb30dd00}{M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R}~0x80
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Melexis \hyperlink{class_m_l_x90614}{M\-L\-X90614} Family Device Driver Library -\/ C\-P\-P Header file. Based on the Melexis \hyperlink{class_m_l_x90614}{M\-L\-X90614} Family Data Sheet 3901090614 Rev 004 09jun2008. \begin{DoxyItemize}
+\item The current implementation does not manage P\-W\-M (only digital data by I2\-C). \item Sleep mode is not implemented yet.\end{DoxyItemize}
+\begin{DoxyNote}{Note}
+T\-H\-I\-S I\-S O\-N\-L\-Y A P\-A\-R\-T\-I\-A\-L R\-E\-L\-E\-A\-S\-E. T\-H\-I\-S D\-E\-V\-I\-C\-E C\-L\-A\-S\-S I\-S C\-U\-R\-R\-E\-N\-T\-L\-Y U\-N\-D\-E\-R\-G\-O\-I\-N\-G A\-C\-T\-I\-V\-E D\-E\-V\-E\-L\-O\-P\-M\-E\-N\-T A\-N\-D I\-S S\-T\-I\-L\-L M\-I\-S\-S\-I\-N\-G S\-O\-M\-E I\-M\-P\-O\-R\-T\-A\-N\-T F\-E\-A\-T\-U\-R\-E\-S. P\-L\-E\-A\-S\-E K\-E\-E\-P T\-H\-I\-S I\-N M\-I\-N\-D I\-F Y\-O\-U D\-E\-C\-I\-D\-E T\-O U\-S\-E T\-H\-I\-S P\-A\-R\-T\-I\-C\-U\-L\-A\-R C\-O\-D\-E F\-O\-R A\-N\-Y\-T\-H\-I\-N\-G.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+J. F. Fitter \href{mailto:jfitter@eagleairaust.com.au}{\tt jfitter@eagleairaust.\-com.\-au} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2014-\/2017 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2017 John Fitter. All right reserved.
+\end{DoxyCopyright}
+\begin{DoxyParagraph}{License}
+This program is free software; you can redistribute it and/or modify it under the terms of the G\-N\-U Lesser General Public License as published by the Free Software Foundation; either version 2.\-1 of the License, or (at your option) any later version. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+This Program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U Lesser General Public License for more details at \href{http://www.gnu.org/copyleft/gpl.html}{\tt http\-://www.\-gnu.\-org/copyleft/gpl.\-html} 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+You should have received a copy of the G\-N\-U Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, M\-A 02110-\/1301 U\-S\-A 
+\end{DoxyParagraph}
+
+
+Definition in file \hyperlink{_m_l_x90614_8h_source}{M\-L\-X90614.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_m_l_x90614_8h_af57cd108cf3cd4e21dc471263b2236ec}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-A\-D\-D\-R}}
+\index{M\-L\-X90614\-\_\-\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-A\-D\-D\-R}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-A\-D\-D\-R~0x0\-E}}\label{_m_l_x90614_8h_af57cd108cf3cd4e21dc471263b2236ec}
+E\-E\-P\-R\-O\-M reg -\/ S\-M\-Bus address 
+
+Definition at line 74 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_afc35f075f26585b4d971069e63c21c12}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R}}
+\index{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-B\-R\-O\-A\-D\-C\-A\-S\-T\-A\-D\-D\-R~0}}\label{_m_l_x90614_8h_afc35f075f26585b4d971069e63c21c12}
+Device broadcast slave address 
+
+Definition at line 51 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a6ed9e9c217b391092fd5aa843688b6b8}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G@{M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G}}
+\index{M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G@{M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-C\-O\-N\-F\-I\-G~0x05}}\label{_m_l_x90614_8h_a6ed9e9c217b391092fd5aa843688b6b8}
+E\-E\-P\-R\-O\-M reg -\/ Configuration register 
+
+Definition at line 73 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a1ed8b42041518a3ef52a7283211ac1f5}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y@{M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y}}
+\index{M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y@{M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-C\-R\-C8\-P\-O\-L\-Y~7}}\label{_m_l_x90614_8h_a1ed8b42041518a3ef52a7283211ac1f5}
+C\-R\-C polynomial = X8+\-X2+\-X1+1 
+
+Definition at line 52 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_af24756c6409f835d6a16cd272c4070cd}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G@{M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G}}
+\index{M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G@{M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-D\-A\-T\-A\-T\-O\-O\-L\-O\-N\-G~1}}\label{_m_l_x90614_8h_af24756c6409f835d6a16cd272c4070cd}
+R/\-W error bitmask -\/ Data is too long 
+
+Definition at line 89 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ad0eb9d37bfb1a51f60ee5c8de5a66900}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D@{M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D}}
+\index{M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D@{M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-E\-E\-\_\-\-D\-E\-A\-D~0x20}}\label{_m_l_x90614_8h_ad0eb9d37bfb1a51f60ee5c8de5a66900}
+R/\-W flag bitmask -\/ E\-E\-Prom double error has occurred 
+
+Definition at line 84 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a6a7d44c7d11461fcc22ce2abf373c4b5}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y@{M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y}}
+\index{M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y@{M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-E\-E\-B\-U\-S\-Y~0x80}}\label{_m_l_x90614_8h_a6a7d44c7d11461fcc22ce2abf373c4b5}
+Read flags -\/ bitmask. R/\-W flag bitmask -\/ E\-E\-Prom is busy (writing/erasing) 
+
+Definition at line 83 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_aa45966c4b6e90fb1d5b8e1597c54ae4d}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T@{M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T}}
+\index{M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T@{M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-E\-E\-C\-O\-R\-R\-U\-P\-T~0x40}}\label{_m_l_x90614_8h_aa45966c4b6e90fb1d5b8e1597c54ae4d}
+R/\-W error bitmask -\/ The E\-E\-Prom is likely to be corrupted 
+
+Definition at line 95 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a7b4d8132a55109992b0cd3a7ecd3923e}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S@{M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S}}
+\index{M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S@{M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-E\-M\-I\-S\-S~0x04}}\label{_m_l_x90614_8h_a7b4d8132a55109992b0cd3a7ecd3923e}
+E\-E\-P\-R\-O\-M reg -\/ Object emissivity register 
+
+Definition at line 72 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a4814993dbb3667d65ff70fe5c9f76858}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R}}
+\index{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R@{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I2\-C\-D\-E\-F\-A\-U\-L\-T\-A\-D\-D\-R~0x5\-A}}\label{_m_l_x90614_8h_a4814993dbb3667d65ff70fe5c9f76858}
+Device default slave address 
+
+Definition at line 50 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ab9d92fa5fa4e1fd97640fbde9b3980e1}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-D1@{M\-L\-X90614\-\_\-\-I\-D1}}
+\index{M\-L\-X90614\-\_\-\-I\-D1@{M\-L\-X90614\-\_\-\-I\-D1}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-D1}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-D1~0x1\-C}}\label{_m_l_x90614_8h_ab9d92fa5fa4e1fd97640fbde9b3980e1}
+E\-E\-P\-R\-O\-M reg -\/ I\-D numer (w1) 
+
+Definition at line 75 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ae62eec269f911044a1f4c07d83b8e8a3}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-D2@{M\-L\-X90614\-\_\-\-I\-D2}}
+\index{M\-L\-X90614\-\_\-\-I\-D2@{M\-L\-X90614\-\_\-\-I\-D2}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-D2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-D2~0x1\-D}}\label{_m_l_x90614_8h_ae62eec269f911044a1f4c07d83b8e8a3}
+E\-E\-P\-R\-O\-M reg -\/ I\-D numer (w2) 
+
+Definition at line 76 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_acbb3fce06a09175246f8591c4749d2d6}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-D3@{M\-L\-X90614\-\_\-\-I\-D3}}
+\index{M\-L\-X90614\-\_\-\-I\-D3@{M\-L\-X90614\-\_\-\-I\-D3}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-D3}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-D3~0x1\-E}}\label{_m_l_x90614_8h_acbb3fce06a09175246f8591c4749d2d6}
+E\-E\-P\-R\-O\-M reg -\/ I\-D numer (w3) 
+
+Definition at line 77 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a91fc995e03195b4f294172a05bcb134b}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-D4@{M\-L\-X90614\-\_\-\-I\-D4}}
+\index{M\-L\-X90614\-\_\-\-I\-D4@{M\-L\-X90614\-\_\-\-I\-D4}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-D4}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-D4~0x1\-F}}\label{_m_l_x90614_8h_a91fc995e03195b4f294172a05bcb134b}
+E\-E\-P\-R\-O\-M reg -\/ I\-D numer (w4) 
+
+Definition at line 78 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a159318e56d224e102eefbc8d20427877}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-N\-I\-T@{M\-L\-X90614\-\_\-\-I\-N\-I\-T}}
+\index{M\-L\-X90614\-\_\-\-I\-N\-I\-T@{M\-L\-X90614\-\_\-\-I\-N\-I\-T}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-N\-I\-T~0x10}}\label{_m_l_x90614_8h_a159318e56d224e102eefbc8d20427877}
+R/\-W flag bitmask -\/ P\-O\-R initialization is still ongoing 
+
+Definition at line 85 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a6d1d12ae182d43f3890c84d08e3147d1}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A@{M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A}}
+\index{M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A@{M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-I\-N\-V\-A\-L\-I\-D\-A\-T\-A~0x20}}\label{_m_l_x90614_8h_a6d1d12ae182d43f3890c84d08e3147d1}
+R/\-W error bitmask -\/ R\-X/\-T\-X Data fails selection criteria 
+
+Definition at line 94 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ae2939d24d471b231e443ba49dd3abd09}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L@{M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L}}
+\index{M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L@{M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-P\-W\-M\-C\-T\-R\-L~0x02}}\label{_m_l_x90614_8h_ae2939d24d471b231e443ba49dd3abd09}
+E\-E\-P\-R\-O\-M reg -\/ Pulse width modulation output control register 
+
+Definition at line 70 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ad4daa265652b71ebc0cd7ae384c65023}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1@{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1}}
+\index{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1@{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R1~0x04}}\label{_m_l_x90614_8h_ad4daa265652b71ebc0cd7ae384c65023}
+R\-A\-M addresses. R\-A\-M reg -\/ Raw temperature, source \#1 
+
+Definition at line 61 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a94a0e96818a3088dc493d5b16142f5be}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2@{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2}}
+\index{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2@{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-R\-A\-W\-I\-R2~0x05}}\label{_m_l_x90614_8h_a94a0e96818a3088dc493d5b16142f5be}
+R\-A\-M reg -\/ Raw temperature, source \#2 
+
+Definition at line 62 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_afc27e294e00ad29fa1fc89e52893e129}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D@{M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D}}
+\index{M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D@{M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-R\-F\-L\-A\-G\-C\-M\-D~0x\-F0}}\label{_m_l_x90614_8h_afc27e294e00ad29fa1fc89e52893e129}
+Read R/\-W Flags register command 
+
+Definition at line 80 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_abdb64a9bc664fa200565a877eb30dd00}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R@{M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R}}
+\index{M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R@{M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-R\-F\-L\-G\-E\-R\-R~0x80}}\label{_m_l_x90614_8h_abdb64a9bc664fa200565a877eb30dd00}
+R/\-W error bitmask -\/ R/\-W flags register access error 
+
+Definition at line 96 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_aeff5f43e3a0aab6b1b649916f1ca2584}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C@{M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C}}
+\index{M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C@{M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-R\-X\-C\-R\-C~0x10}}\label{_m_l_x90614_8h_aeff5f43e3a0aab6b1b649916f1ca2584}
+R/\-W error bitmask -\/ Receiver C\-R\-C mismatch 
+
+Definition at line 93 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_abf76051d9671540092cc919e70e434e4}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S@{M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S}}
+\index{M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S@{M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-S\-U\-C\-C\-E\-S\-S~0}}\label{_m_l_x90614_8h_abf76051d9671540092cc919e70e434e4}
+R/\-W Error flags -\/ bitmask. R/\-W error bitmask -\/ No Errors 
+
+Definition at line 88 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a0f608580f8b2dd959d8bb0d86667c020}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-A@{M\-L\-X90614\-\_\-\-T\-A}}
+\index{M\-L\-X90614\-\_\-\-T\-A@{M\-L\-X90614\-\_\-\-T\-A}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-A~0x06}}\label{_m_l_x90614_8h_a0f608580f8b2dd959d8bb0d86667c020}
+R\-A\-M reg -\/ Linearized temperature, ambient 
+
+Definition at line 63 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a72caf2736d9208fa5f9343bd6eb537f7}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E@{M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E}}
+\index{M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E@{M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-A\-R\-A\-N\-G\-E~0x03}}\label{_m_l_x90614_8h_a72caf2736d9208fa5f9343bd6eb537f7}
+E\-E\-P\-R\-O\-M reg -\/ Customer dependent ambient temperature range 
+
+Definition at line 71 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a7587dcdf93ae7a9bf6eb19c614803bf1}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-O\-B\-J1@{M\-L\-X90614\-\_\-\-T\-O\-B\-J1}}
+\index{M\-L\-X90614\-\_\-\-T\-O\-B\-J1@{M\-L\-X90614\-\_\-\-T\-O\-B\-J1}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-O\-B\-J1}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-O\-B\-J1~0x07}}\label{_m_l_x90614_8h_a7587dcdf93ae7a9bf6eb19c614803bf1}
+R\-A\-M reg -\/ Linearized temperature, source \#1 
+
+Definition at line 64 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_ac24503f3293ee99de008b77cd4f3ee8b}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-O\-B\-J2@{M\-L\-X90614\-\_\-\-T\-O\-B\-J2}}
+\index{M\-L\-X90614\-\_\-\-T\-O\-B\-J2@{M\-L\-X90614\-\_\-\-T\-O\-B\-J2}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-O\-B\-J2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-O\-B\-J2~0x08}}\label{_m_l_x90614_8h_ac24503f3293ee99de008b77cd4f3ee8b}
+R\-A\-M reg -\/ Linearized temperature, source \#2 
+
+Definition at line 65 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a19795df7252a8fca050c35230d4cd892}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X@{M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X}}
+\index{M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X@{M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-O\-M\-A\-X~0x00}}\label{_m_l_x90614_8h_a19795df7252a8fca050c35230d4cd892}
+E\-E\-P\-R\-O\-M addresses. E\-E\-P\-R\-O\-M reg -\/ Customer dependent object temperature range maximum 
+
+Definition at line 68 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a0b2c357b88f71301dd7813757d5620bd}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N@{M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N}}
+\index{M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N@{M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-O\-M\-I\-N~0x01}}\label{_m_l_x90614_8h_a0b2c357b88f71301dd7813757d5620bd}
+E\-E\-P\-R\-O\-M reg -\/ Customer dependent object temperature range minimum 
+
+Definition at line 69 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a1cd57fb943d4f51f84014b42fac9c7e0}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K@{M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K}}
+\index{M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K@{M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-X\-A\-D\-D\-R\-N\-A\-C\-K~2}}\label{_m_l_x90614_8h_a1cd57fb943d4f51f84014b42fac9c7e0}
+R/\-W error bitmask -\/ T\-X address not acknowledged 
+
+Definition at line 90 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a668abcf4d4d58b1fb61b44b8775e0f4b}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K@{M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K}}
+\index{M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K@{M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-X\-D\-A\-T\-A\-N\-A\-C\-K~4}}\label{_m_l_x90614_8h_a668abcf4d4d58b1fb61b44b8775e0f4b}
+R/\-W error bitmask -\/ T\-X data not acknowledged 
+
+Definition at line 91 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_a9762acdee75ff42d67df672381bfb482}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R@{M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R}}
+\index{M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R@{M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-T\-X\-O\-T\-H\-E\-R~8}}\label{_m_l_x90614_8h_a9762acdee75ff42d67df672381bfb482}
+R/\-W error bitmask -\/ Unknown error 
+
+Definition at line 92 of file M\-L\-X90614.\-h.
+
+\hypertarget{_m_l_x90614_8h_af32948c76dba5dacaa67850cc9f2d09e}{\index{M\-L\-X90614.\-h@{M\-L\-X90614.\-h}!M\-L\-X90614\-\_\-\-X\-D\-L\-Y@{M\-L\-X90614\-\_\-\-X\-D\-L\-Y}}
+\index{M\-L\-X90614\-\_\-\-X\-D\-L\-Y@{M\-L\-X90614\-\_\-\-X\-D\-L\-Y}!MLX90614.h@{M\-L\-X90614.\-h}}
+\subsubsection[{M\-L\-X90614\-\_\-\-X\-D\-L\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-L\-X90614\-\_\-\-X\-D\-L\-Y~25}}\label{_m_l_x90614_8h_af32948c76dba5dacaa67850cc9f2d09e}
+Experimentally determined delay to prevent read errors after calling Wire.\-end\-Transmission() {\itshape (possibly due to incompatibility between Wire library and S\-M\-Bus protocol)}. 
+
+Definition at line 53 of file M\-L\-X90614.\-h.
+

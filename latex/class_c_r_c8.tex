@@ -1,0 +1,123 @@
+\hypertarget{class_c_r_c8}{\section{C\-R\-C8 Class Reference}
+\label{class_c_r_c8}\index{C\-R\-C8@{C\-R\-C8}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_c_r_c8_aa55fad578b29297298f72e65b2494fdb}{C\-R\-C8} (uint8\-\_\-t polynomial=\hyperlink{_crc8_8h_a723f9adea4dfa42b246b0d248e57a794}{C\-R\-C8\-\_\-\-D\-E\-F\-A\-U\-L\-T\-P\-O\-L\-Y})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_c_r_c8}{C\-R\-C8} class constructor. \end{DoxyCompactList}\item 
+uint8\-\_\-t \hyperlink{class_c_r_c8_a03f58a9f90db0e1d22fc48ba486a3654}{crc8} (void)
+\begin{DoxyCompactList}\small\item\em Return the current value of the C\-R\-C. \end{DoxyCompactList}\item 
+uint8\-\_\-t \hyperlink{class_c_r_c8_a80f09a2c108b6b2ba0fcfed3e6f9544b}{crc8} (uint8\-\_\-t data)
+\begin{DoxyCompactList}\small\item\em Update the current value of the C\-R\-C. \end{DoxyCompactList}\item 
+void \hyperlink{class_c_r_c8_a38931d0b9e5ba8f2e974dca7dbf30e5a}{crc8\-Start} (uint8\-\_\-t poly)
+\begin{DoxyCompactList}\small\item\em Initialize the \hyperlink{class_c_r_c8}{C\-R\-C8} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_r_c8_ad196e3d62b2681cd6a816caa6d8bd367}{uint8\-\_\-t {\bfseries \-\_\-crc}}\label{class_c_r_c8_ad196e3d62b2681cd6a816caa6d8bd367}
+
+\item 
+\hypertarget{class_c_r_c8_a460b39f317bfe37f3db601e90debf3d8}{uint8\-\_\-t {\bfseries \-\_\-poly}}\label{class_c_r_c8_a460b39f317bfe37f3db601e90debf3d8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 37 of file Crc8.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_c_r_c8_aa55fad578b29297298f72e65b2494fdb}{\index{C\-R\-C8@{C\-R\-C8}!C\-R\-C8@{C\-R\-C8}}
+\index{C\-R\-C8@{C\-R\-C8}!CRC8@{C\-R\-C8}}
+\subsubsection[{C\-R\-C8}]{\setlength{\rightskip}{0pt plus 5cm}C\-R\-C8\-::\-C\-R\-C8 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{poly = {\ttfamily {\bf C\-R\-C8\-\_\-\-D\-E\-F\-A\-U\-L\-T\-P\-O\-L\-Y}}}
+\end{DoxyParamCaption}
+)}}\label{class_c_r_c8_aa55fad578b29297298f72e65b2494fdb}
+
+
+\hyperlink{class_c_r_c8}{C\-R\-C8} class constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em poly} & 8 bit C\-R\-C polynomial to use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file Crc8.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_r_c8_a03f58a9f90db0e1d22fc48ba486a3654}{\index{C\-R\-C8@{C\-R\-C8}!crc8@{crc8}}
+\index{crc8@{crc8}!CRC8@{C\-R\-C8}}
+\subsubsection[{crc8}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t C\-R\-C8\-::crc8 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_c_r_c8_a03f58a9f90db0e1d22fc48ba486a3654}
+
+
+Return the current value of the C\-R\-C. 
+
+\begin{DoxyReturn}{Returns}
+8 bit C\-R\-C current value. 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Crc8.\-cpp.
+
+\hypertarget{class_c_r_c8_a80f09a2c108b6b2ba0fcfed3e6f9544b}{\index{C\-R\-C8@{C\-R\-C8}!crc8@{crc8}}
+\index{crc8@{crc8}!CRC8@{C\-R\-C8}}
+\subsubsection[{crc8}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t C\-R\-C8\-::crc8 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{class_c_r_c8_a80f09a2c108b6b2ba0fcfed3e6f9544b}
+
+
+Update the current value of the C\-R\-C. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data} & New 8 bit data to be added to the C\-R\-C. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+8 bit C\-R\-C current value. 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file Crc8.\-cpp.
+
+\hypertarget{class_c_r_c8_a38931d0b9e5ba8f2e974dca7dbf30e5a}{\index{C\-R\-C8@{C\-R\-C8}!crc8\-Start@{crc8\-Start}}
+\index{crc8\-Start@{crc8\-Start}!CRC8@{C\-R\-C8}}
+\subsubsection[{crc8\-Start}]{\setlength{\rightskip}{0pt plus 5cm}void C\-R\-C8\-::crc8\-Start (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{poly}
+\end{DoxyParamCaption}
+)}}\label{class_c_r_c8_a38931d0b9e5ba8f2e974dca7dbf30e5a}
+
+
+Initialize the \hyperlink{class_c_r_c8}{C\-R\-C8} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em poly} & 8 bit C\-R\-C polynomial to use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file Crc8.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_crc8_8h}{Crc8.\-h}\item 
+\hyperlink{_crc8_8cpp}{Crc8.\-cpp}\end{DoxyCompactItemize}
