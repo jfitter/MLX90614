@@ -228,9 +228,10 @@ void MLX90614::setAddr(uint8_t addr) {
 
     // it is assumed we do not know the existing slave address
     // so the broadcast address is used
+    // this will throw an error so errors will be ignored
     // first ensure the new address is in legal range (1..127)
     if(addr &= 0x7f) {
-        _addr = 0;
+        _addr = MLX90614_BROADCASTADDR;
         writeEEProm(MLX90614_ADDR, addr);
         _addr = addr;
     } else _rwError |= MLX90614_INVALIDATA;
@@ -250,13 +251,12 @@ uint8_t MLX90614::getAddr(void) {
 
     // it is assumed we do not know the existing slave address
     // so the broadcast address is used
-    _addr = 0;
+    // this will throw a r/w error so errors will be ignored
+    _addr = MLX90614_BROADCASTADDR;
 
     // reload program copy with existing slave address
     _addr = lowByte(readEEProm(MLX90614_ADDR));
 
-    // on any R/W error restore program copy of slave address
-    if(_rwError) _addr = tempAddr;
     return _addr;
 }
 
@@ -326,7 +326,10 @@ void MLX90614::write16(uint8_t cmd, uint16_t data) {
 
     // then write the crc and set the error status bits
     Wire.write(_pec = _crc8);
-    _rwError |= (1 << Wire.endTransmission(false)) >> 1;      // fixed 19jul17 - changed from "true"
+    
+    // this will throw an error when the broadcast address is being used
+    // it can be safely ignored just in this case
+    _rwError |= (1 << Wire.endTransmission(true)) >> 1;
 }
 
 /**
@@ -357,16 +360,16 @@ void MLX90614::writeEEProm(uint8_t reg, uint16_t data) {
         // clear the memory and wait Terase (per manufacturer's documentation)
         write16(reg, 0);
         delay(5);
-
-        // if no write errors then write the new value
         if(_rwError) _rwError |= MLX90614_EECORRUPT;
-        else {
 
-            // write the data and wait Twrite (per manufacturer's documentation)
-            write16(reg, data); 
-            delay(5);
-            if(_rwError) _rwError |= MLX90614_EECORRUPT;
-        }
+        // if the broadcast address is used then a r/w error will be thrown
+        // we just ignore it and carry on writing the data
+        // write the data and wait Twrite (per manufacturer's documentation)
+        write16(reg, data); 
+        delay(5);
+        
+        // when using the braodcast address the application can ignore this error
+        if(_rwError) _rwError |= MLX90614_EECORRUPT;
     }
 }
 
