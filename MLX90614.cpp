@@ -142,13 +142,13 @@ void MLX90614::setIIRcoeff(uint8_t csb) {
 
     _rwError = 0;
 
-    // ensure legal range by clearing all but the LS 3 bits
+    // Ensure legal range by clearing all but the LS 3 bits.
     csb &= 7;
 
-    // get the current value of ConfigRegister1
+    // Get the current value of ConfigRegister1
     uint16_t reg = readEEProm(MLX90614_CONFIG);
 
-    // clear bits 2:0, mask in the new value, then write it back
+    // Clear bits 2:0, mask in the new value, then write it back.
     if(!_rwError) {
         reg &= 0xfff8;
         reg |= (uint16_t)csb;
@@ -165,7 +165,7 @@ uint8_t MLX90614::getIIRcoeff(void) {
 
     _rwError = 0;
 
-    // get the current value of ConfigRegister1 bits 2:0
+    // Get the current value of ConfigRegister1 bits 2:0
     uint8_t iir = readEEProm(MLX90614_CONFIG) & 7;
 
     if(_rwError) return 4;
@@ -183,13 +183,13 @@ void MLX90614::setFIRcoeff(uint8_t csb) {
 
     _rwError = 0;
 
-    // ensure legal range by clearing all but the LS 3 bits
+    // Ensure legal range by clearing all but the LS 3 bits.
     csb &= 7;
 
-    // get the current value of ConfigRegister1
+    // Get the current value of ConfigRegister1
     uint16_t reg = readEEProm(MLX90614_CONFIG);
 
-    // clear bits 10:8, mask in the new value, then write it back
+    // Clear bits 10:8, mask in the new value, then write it back.
     if(!_rwError) {
         reg &= 0xf8ff;
         reg |= (uint16_t)csb << 8;
@@ -208,7 +208,7 @@ uint8_t MLX90614::getFIRcoeff(void) {
 
     _rwError = 0;
 
-    // get the current value of ConfigRegister1 bits 10:8
+    // Get the current value of ConfigRegister1 bits 10:8
     uint8_t fir = (readEEProm(MLX90614_CONFIG) >> 8) & 7;
 
     if(_rwError) return 7;
@@ -226,14 +226,16 @@ void MLX90614::setAddr(uint8_t addr) {
 
     _rwError = 0;
 
-    // it is assumed we do not know the existing slave address
-    // so the broadcast address is used
-    // this will throw an error so errors will be ignored
-    // first ensure the new address is in legal range (1..127)
+    // It is assumed we do not know the existing slave address so the broadcast address is used.
+    // First ensure the new address is in the legal range (1..127)
     if(addr &= 0x7f) {
         _addr = MLX90614_BROADCASTADDR;
         writeEEProm(MLX90614_ADDR, addr);
+        
+        // There will always be a r/w error using the broadcast address so we cannot respond
+        // to r/w errors. We must just assume this worked.
         _addr = addr;
+        
     } else _rwError |= MLX90614_INVALIDATA;
 }
 
@@ -249,12 +251,11 @@ uint8_t MLX90614::getAddr(void) {
 
     _rwError = 0;
 
-    // it is assumed we do not know the existing slave address
-    // so the broadcast address is used
-    // this will throw a r/w error so errors will be ignored
+    // It is assumed we do not know the existing slave address so the broadcast address is used.
+    // This will throw a r/w error so errors will be ignored.
     _addr = MLX90614_BROADCASTADDR;
 
-    // reload program copy with existing slave address
+    // Reload program copy with the existing slave address.
     _addr = lowByte(readEEProm(MLX90614_ADDR));
 
     return _addr;
@@ -269,34 +270,36 @@ uint16_t MLX90614::read16(uint8_t cmd) {
     uint16_t val;
     CRC8 crc(MLX90614_CRC8POLY);
 
-    // send the slave address then the command and set any
-    // error status bits returned by the write
+    // Send the slave address then the command and set any error status bits returned by the write.
     Wire.beginTransmission(_addr);
     Wire.write(cmd);
     _rwError |= (1 << Wire.endTransmission(false)) >> 1;
 
-    // experimentally determined delay to prevent read errors
-    // (manufacturer's data sheet has left something out)
+    // Experimentally determined delay to prevent read errors (manufacturer's data sheet has 
+    // left something out).
     delayMicroseconds(MLX90614_XDLY);
 
-    // resend slave address then get the 3 returned bytes
+    // Resend slave address then get the 3 returned bytes.
     Wire.requestFrom(_addr, (uint8_t)3);
 
-    // data is returned as 2 bytes little endian
+    // Data is returned as 2 bytes little endian.
     val = Wire.read();
     val |= Wire.read() << 8;
 
-    // read the PEC (CRC-8 of all bytes)
+    // Rread the PEC (CRC-8 of all bytes).
     _pec = Wire.read();
 
-    // build our own CRC-8 of all received bytes
+    // Clear r/w errors if using broadcast address.
+    if(_addr == MLX90614_BROADCASTADDR) _rwError &= MLX90614_NORWERROR;
+    
+    // Build our own CRC-8 of all received bytes.
     crc.crc8(_addr << 1);
     crc.crc8(cmd);
     crc.crc8((_addr << 1) + 1);
     crc.crc8(lowByte(val));
     _crc8 = crc.crc8(highByte(val));
 
-    // set error status bit if CRC mismatch
+    // Set error status bit if CRC mismatch.
     if(_crc8 != _pec) _rwError |= MLX90614_RXCRC;
 
     return val;
@@ -310,26 +313,26 @@ uint16_t MLX90614::read16(uint8_t cmd) {
 void MLX90614::write16(uint8_t cmd, uint16_t data) {
     CRC8 crc(MLX90614_CRC8POLY);
 
-    // build the CRC-8 of all bytes to be sent
+    // Build the CRC-8 of all bytes to be sent.
     crc.crc8(_addr << 1);
     crc.crc8(cmd);
     crc.crc8(lowByte(data));
     _crc8 = crc.crc8(highByte(data));
 
-    // send the slave address then the command
+    // Send the slave address then the command.
     Wire.beginTransmission(_addr);
     Wire.write(cmd);
 
-    // write the data low byte first
+    // Write the data low byte first.
     Wire.write(lowByte(data));
     Wire.write(highByte(data));
 
-    // then write the crc and set the error status bits
+    // Then write the crc and set the r/w error status bits.
     Wire.write(_pec = _crc8);
-    
-    // this will throw an error when the broadcast address is being used
-    // it can be safely ignored just in this case
     _rwError |= (1 << Wire.endTransmission(true)) >> 1;
+
+    // Clear r/w errors if using broadcast address.
+    if(_addr == MLX90614_BROADCASTADDR) _rwError &= MLX90614_NORWERROR;
 }
 
 /**
@@ -351,24 +354,21 @@ void MLX90614::writeEEProm(uint8_t reg, uint16_t data) {
     uint16_t val;
     reg |= 0x20;
 
-    // read current value, compare to the new value, and do nothing on a match
-    // or if there are read errors set the error status flag only
+    // Read current value, compare to the new value, and do nothing on a match or if there are
+    // read errors set the error status flag only.
     val = read16(reg);
     if((val != data) && !_rwError) {
 
-        // on any R/W errors it is assumed the memory is corrupted
-        // clear the memory and wait Terase (per manufacturer's documentation)
+        // On any R/W errors it is assumed the memory is corrupted.
+        // Clear the memory and wait Terase (per manufacturer's documentation).
         write16(reg, 0);
         delay(5);
         if(_rwError) _rwError |= MLX90614_EECORRUPT;
 
-        // if the broadcast address is used then a r/w error will be thrown
-        // we just ignore it and carry on writing the data
-        // write the data and wait Twrite (per manufacturer's documentation)
+        // Write the data and wait Twrite (per manufacturer's documentation) 
+        // and set the r/w error status bits.
         write16(reg, data); 
         delay(5);
-        
-        // when using the braodcast address the application can ignore this error
         if(_rwError) _rwError |= MLX90614_EECORRUPT;
     }
 }
@@ -385,7 +385,7 @@ double MLX90614::convKtoC(double degK) {return degK - 273.15;}
  *  \param [in] degC  Temperature in degrees Centigrade.
  *  \return           Temperature in degrees Fahrenheit.
  */
-double MLX90614::convCtoF(double degC) {return (degC * 9. / 5.) + 32.;}
+double MLX90614::convCtoF(double degC) {return (degC * 1.8) + 32.0;}
 
 /**
  *  \brief            Retrieve the chip ID bytes.
@@ -394,7 +394,7 @@ double MLX90614::convCtoF(double degC) {return (degC * 9. / 5.) + 32.;}
 uint64_t MLX90614::readID(void) {
     uint64_t ID = 0;
 
-    // if we are lucky the compiler will optimise this
+    // If we are lucky the compiler will optimise this.
     for(uint8_t i = 0; i < 4; i++) ID = (ID <<= 16) | readEEProm(MLX90614_ID1 + i);
     return ID;
 }

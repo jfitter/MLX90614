@@ -82,7 +82,7 @@
 #define MLX90614_INIT           0x10    /**< R/W flag bitmask - POR initialization is still ongoing */
 
 /** R/W Error flags - bitmask. */
-#define MLX90614_SUCCESS        0       /**< R/W error bitmask - No Errors */
+#define MLX90614_NORWERROR      0       /**< R/W error bitmask - No Errors */
 #define MLX90614_DATATOOLONG    1       /**< R/W error bitmask - Data is too long */
 #define MLX90614_TXADDRNACK     2       /**< R/W error bitmask - TX address not acknowledged */
 #define MLX90614_TXDATANACK     4       /**< R/W error bitmask - TX data not acknowledged */
