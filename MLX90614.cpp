@@ -1,6 +1,8 @@
 /***********************************************************************************************//**
  *  \brief      Melexis MLX90614 Family Device Driver Library - CPP Source file
- *  \details    Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
+ *  \par
+ *  \par        Details
+ *              Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
  *  \li         The current implementation does not manage PWM (only digital data by I2C).
  *  \li         Sleep mode is not implemented yet.
  *
@@ -84,16 +86,16 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
 
     _rwError = 0;
     switch(tsrc) {
-        case    MLX90614_SRC01 : temp = read16(MLX90614_TOBJ1); break;
-        case    MLX90614_SRC02 : temp = read16(MLX90614_TOBJ2); break;
+        case MLX90614_SRC01 : temp = read16(MLX90614_TOBJ1); break;
+        case MLX90614_SRC02 : temp = read16(MLX90614_TOBJ2); break;
         default : temp = read16(MLX90614_TA);
     }
     temp *= 0.02;
     switch(tunit) {
-        case    MLX90614_TC : return convKtoC(temp);
-        case    MLX90614_TF : return convKtoC(convCtoF(temp));
-        default : return temp;
+        case MLX90614_TC : return convKtoC(temp);
+        case MLX90614_TF : return convKtoC(convCtoF(temp));
     }
+    return temp;
 }
 
 /**

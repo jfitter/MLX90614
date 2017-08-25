@@ -145,7 +145,7 @@ void printCRC(uint8_t crc, uint8_t pec) {printf("crc=%02Xh pec=%02Xh", crc, pec)
 void printErrStr(uint8_t err) {
 
     Serial.print(F("  *** "));
-    if(err == MLX90614_SUCCESS) Serial.print(F("RW Success"));
+    if(err == MLX90614_NORWERROR) Serial.print(F("RW Success"));
     else {
         Serial.print(F("Errors: "));
         if(err &  MLX90614_DATATOOLONG) Serial.print(F("Data too long / "));

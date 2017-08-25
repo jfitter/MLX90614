@@ -2,8 +2,10 @@
 #define _MLX90614_H_
 
 /***********************************************************************************************//**
- *  \brief      Melexis MLX90614 Family Device Driver Library - CPP Header file
- *  \details    Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
+ *  \brief      Melexis MLX90614 Family Device Driver Library - CPP Source file
+ *  \par
+ *  \par        Details
+ *              Based on the Melexis MLX90614 Family Data Sheet 3901090614 Rev 004 09jun2008.
  *  \li         The current implementation does not manage PWM (only digital data by I2C).
  *  \li         Sleep mode is not implemented yet.
  *
@@ -11,7 +13,7 @@
  *              ACTIVE DEVELOPMENT AND IS STILL MISSING SOME IMPORTANT FEATURES. PLEASE KEEP 
  *              THIS IN MIND IF YOU DECIDE TO USE THIS PARTICULAR CODE FOR ANYTHING.
  *
- *  \file       MLX90614.H
+ *  \file       MLX90614.CPP
  *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>
  *  \version    1.0
  *  \date       2014-2017
