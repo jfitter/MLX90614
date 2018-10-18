@@ -94,6 +94,7 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
     switch(tunit) {
         case MLX90614_TC : return convKtoC(temp);
         case MLX90614_TF : return convKtoC(convCtoF(temp));
+		default: return temp;
     }
     return temp;
 }
@@ -397,7 +398,10 @@ uint64_t MLX90614::readID(void) {
     uint64_t ID = 0;
 
     // If we are lucky the compiler will optimise this.
-    for(uint8_t i = 0; i < 4; i++) ID = (ID <<= 16) | readEEProm(MLX90614_ID1 + i);
+    for(uint8_t i = 0; i < 4; i++) {
+		ID = ID << 16;
+		ID |= readEEProm(MLX90614_ID1 + i) && 0xFFFF;
+	}
     return ID;
 }
 
