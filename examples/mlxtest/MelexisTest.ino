@@ -73,7 +73,7 @@ void loop(void) {
     if(mlx.rwError) ++errcount;
 
     // read object temperature from source #1 and print out
-    printlnTemp(mlx.readTemp(MLX90614::MLX90614_SRCO1, MLX90614::MLX90614_TK), 'O');
+    printlnTemp(mlx.readTemp(MLX90614::MLX90614_SRC01, MLX90614::MLX90614_TK), 'O');
     if(mlx.rwError) ++errcount;
 
     // print running total of samples and errors
@@ -171,8 +171,8 @@ const struct defaultEEPromData {
 
 /**
  *  \brief    Set EEPROM memory contents to factory default values.
-    \remarks  A device with default adress must not be on the bus.
-    \n<tt>    Only user allowed memory locations are written.
+ *  \remarks  A device with default adress must not be on the bus.
+ *            \n<tt>Only user allowed memory locations are written.</tt>
  */
 void setEEPromDefaults(void) {
 

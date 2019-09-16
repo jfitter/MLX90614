@@ -204,7 +204,6 @@ void MLX90614::setFIRcoeff(uint8_t csb) {
  *  \remarks          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
  *  \n                The value of N is set as follows:  <tt>N = 2 ^ (csb + 3)</tt>
     \n                The manufacturer does not recommend <tt>N < 128</tt>
- *  \param [in] csb   See page 12 of datasheet. Range 0...7
  */
 uint8_t MLX90614::getFIRcoeff(void) {
 
@@ -222,7 +221,7 @@ uint8_t MLX90614::getFIRcoeff(void) {
  *  \remarks
  *  \li               Must be only device on the bus.
  *  \li               Must power cycle the device after changing address.
- *  \param [in] a     New device address. Range 1...127
+ *  \param [in] addr  New device address. Range 1...127
  */
 void MLX90614::setAddr(uint8_t addr) {
 

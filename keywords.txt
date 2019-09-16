@@ -14,8 +14,8 @@ MLX90614_TK             KEYWORD1
 MLX90614_TC             KEYWORD1
 MLX90614_TF             KEYWORD1
 MLX90614_SRCA           KEYWORD1
-MLX90614_SRCO1          KEYWORD1
-MLX90614_SRCO2          KEYWORD1
+MLX90614_SRC01          KEYWORD1
+MLX90614_SRC02          KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

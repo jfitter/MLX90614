@@ -42,10 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 *.bak
-examples/mlxtest_mlp/MLX90614_ChipPic_55x100.jpg
-examples/mlxtest_mlp/mlxtest_mlp.h
-examples/mlxtest_mlp/mlxtest_mlp.ino
-examples/mlxtest_mlp/mlxtest_mlp.mlx
-examples/mlxtest_mlp/mlxtest_mlp.sdf
-examples/mlxtest_mlp/mlxtest_mlp.vcxproj
-examples/mlxtest_mlp/printf.h
+examples/mlxtest_mlp/
+html/
+latex/

@@ -4,7 +4,7 @@
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Classes"><param name="ImageNumber" value="1"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Classes"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Class List"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
@@ -79,37 +79,10 @@
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Enumerator"><param name="Local" value="functions_eval.html"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Files"><param name="ImageNumber" value="1"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Files"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="File List"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="examples"><param name="Local" value="dir_d28a4824dc47e487b107a5db32ef43c4.html"><param name="ImageNumber" value="1"></OBJECT>
-      <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="mlxtest"><param name="Local" value="dir_520aa0f76fb1b2e249a0e1ccca123497.html"><param name="ImageNumber" value="1"></OBJECT>
-        <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="MelexisTest.ino"><param name="Local" value="_melexis_test_8ino.html"><param name="ImageNumber" value="1"></OBJECT>
-          <UL>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="defaultEEPromData"><param name="Local" value="structdefault_e_e_prom_data.html"><param name="ImageNumber" value="1"></OBJECT>
-            <UL>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="address"><param name="Local" value="structdefault_e_e_prom_data.html#af1dad8ee7eace389e3dcecbedcd9af04"><param name="ImageNumber" value="11"></OBJECT>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="data"><param name="Local" value="structdefault_e_e_prom_data.html#abb3e4be9656ea9b20f05a1288c09020a"><param name="ImageNumber" value="11"></OBJECT>
-            </UL>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="__STDC_CONSTANT_MACROS"><param name="Local" value="_melexis_test_8ino.html#a786132414c30f947907be33a4c28125a"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="__STDC_LIMIT_MACROS"><param name="Local" value="_melexis_test_8ino.html#aeb7e7a856ab7a794b05b6b63ef36ea3e"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="MELEXISTEST_C"><param name="Local" value="_melexis_test_8ino.html#a6b7664d51be64c4b4f61204d4f256dbd"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="dumpEEProm"><param name="Local" value="_melexis_test_8ino.html#adf7e43c01edc71026fd6c122cf408817"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="floatToStr"><param name="Local" value="_melexis_test_8ino.html#abbd67db9a56c14f56c98c750daf1ab92"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="loop"><param name="Local" value="_melexis_test_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="printCRC"><param name="Local" value="_melexis_test_8ino.html#a9ca1a07ce803c9b09a05b991f0101107"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="printErrStr"><param name="Local" value="_melexis_test_8ino.html#a47075beca8233f9f8e9614f4fb6eabd1"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="printlnTemp"><param name="Local" value="_melexis_test_8ino.html#a3906dd03c261bb9c83de87b9988e91ce"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="setEEPromDefaults"><param name="Local" value="_melexis_test_8ino.html#a5662aecfa23cb7ad365b8246e928c843"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="setup"><param name="Local" value="_melexis_test_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="eDat"><param name="Local" value="_melexis_test_8ino.html#aa749b7d2a476c21158b27ed53cdcbc49"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="mlx"><param name="Local" value="_melexis_test_8ino.html#af12b22cf7e5666147279557c9b55db66"><param name="ImageNumber" value="11"></OBJECT>
-          </UL>
-        </UL>
-      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Crc8.cpp"><param name="Local" value="_crc8_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Crc8.h"><param name="Local" value="_crc8_8h.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
@@ -123,6 +96,27 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="_poly"><param name="Local" value="class_c_r_c8.html#a460b39f317bfe37f3db601e90debf3d8"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="CRC8_DEFAULTPOLY"><param name="Local" value="_crc8_8h.html#a723f9adea4dfa42b246b0d248e57a794"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="MelexisTest.ino"><param name="Local" value="_melexis_test_8ino.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="defaultEEPromData"><param name="Local" value="structdefault_e_e_prom_data.html"><param name="ImageNumber" value="1"></OBJECT>
+        <UL>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="address"><param name="Local" value="structdefault_e_e_prom_data.html#af1dad8ee7eace389e3dcecbedcd9af04"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="data"><param name="Local" value="structdefault_e_e_prom_data.html#abb3e4be9656ea9b20f05a1288c09020a"><param name="ImageNumber" value="11"></OBJECT>
+        </UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="__STDC_CONSTANT_MACROS"><param name="Local" value="_melexis_test_8ino.html#a786132414c30f947907be33a4c28125a"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="__STDC_LIMIT_MACROS"><param name="Local" value="_melexis_test_8ino.html#aeb7e7a856ab7a794b05b6b63ef36ea3e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="MELEXISTEST_C"><param name="Local" value="_melexis_test_8ino.html#a6b7664d51be64c4b4f61204d4f256dbd"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="dumpEEProm"><param name="Local" value="_melexis_test_8ino.html#adf7e43c01edc71026fd6c122cf408817"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="floatToStr"><param name="Local" value="_melexis_test_8ino.html#abbd67db9a56c14f56c98c750daf1ab92"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="loop"><param name="Local" value="_melexis_test_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="printCRC"><param name="Local" value="_melexis_test_8ino.html#a9ca1a07ce803c9b09a05b991f0101107"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="printErrStr"><param name="Local" value="_melexis_test_8ino.html#a47075beca8233f9f8e9614f4fb6eabd1"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="printlnTemp"><param name="Local" value="_melexis_test_8ino.html#a3906dd03c261bb9c83de87b9988e91ce"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="setEEPromDefaults"><param name="Local" value="_melexis_test_8ino.html#a5662aecfa23cb7ad365b8246e928c843"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="setup"><param name="Local" value="_melexis_test_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="eDat"><param name="Local" value="_melexis_test_8ino.html#aa749b7d2a476c21158b27ed53cdcbc49"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="mlx"><param name="Local" value="_melexis_test_8ino.html#af12b22cf7e5666147279557c9b55db66"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="MLX90614.cpp"><param name="Local" value="_m_l_x90614_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="MLX90614.h"><param name="Local" value="_m_l_x90614_8h_source.html"><param name="ImageNumber" value="11"></OBJECT>
