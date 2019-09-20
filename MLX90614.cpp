@@ -38,7 +38,11 @@
 /**************************************************************************************************/
 /*  MLX90614 Device class functions.                                                              */
 /**************************************************************************************************/
-
+/**
+ *  \example{lineno}     MelexisTest.ino 
+ *                       An example of how to use the MLX90614 class.
+ */
+ 
 /**
  *  \brief               MLX90614 Device class constructor.
  *  \param [in] i2caddr  Device address (default: published value).
