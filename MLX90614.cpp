@@ -14,7 +14,7 @@
  *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>
  *  \version    1.0
  *  \date       2014-2017
- *  \copyright  Copyright (c) 2017 John Fitter.  All right reserved.
+ *  \copyright  Copyright &copy; 2017 John Fitter.  All right reserved.
  *
  *  \par        License
  *              This program is free software; you can redistribute it and/or modify it under
@@ -78,11 +78,13 @@ boolean MLX90614::begin(void) {
 /**
  *  \brief             Return a temperature from the specified source in specified units.
  *  \remarks
- *  \li                Temperature is stored in ram as a 16 bit absolute value to a resolution of 0.02K
+ *  \li                Temperature is stored in ram as a 16 bit absolute value to a 
+ *                     resolution of 0.02&deg;K
  *  \li                Linearized sensor die temperature is available as Ta (ambient).
- *  \li                One or two object temperatures are linearized to the range -38.2C...125C
+ *  \li                One or two object temperatures are linearized to the 
+ *                     range -38.2&deg;C...125&deg;C
  *  \param [in] tsrc   Internal temperature source to read, default #1.
- *  \param [in] tunit  Temperature units to convert raw data to, default deg Celsius.
+ *  \param [in] tunit  Temperature units to convert raw data to, default &deg;C.
  *  \return            Temperature.
  */
 double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
@@ -103,9 +105,9 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
 }
 
 /**
- *  \brief             Set the emissivity of the object.
+ *  \brief             Set the emissivity (&epsilon;) of the object.
  *  \remarks           The emissivity is stored as a 16 bit integer defined by the following:
- *  \n<tt>             emissivity = dec2hex[round(65535 x emiss)]</tt>
+ *  \n                 <tt>&epsilon; = dec2hex[round(65535 x emiss)]</tt>
  *  \param [in] emiss  Physical emissivity value in range 0.1 ...1.0, default 1.0
  */
 void MLX90614::setEmissivity(float emiss) {
@@ -116,9 +118,9 @@ void MLX90614::setEmissivity(float emiss) {
     else writeEEProm(MLX90614_EMISS, e);
 }
 /**
- *  \brief             Get the emissivity of the object.
+ *  \brief             Get the emissivity (&epsilon;) of the object.
  *  \remarks           The emissivity is stored as a 16 bit integer defined by the following:
- *  \n<tt>             emissivity = dec2hex[round(65535 x emiss)]</tt>
+ *  \n                 <tt>&epsilon; = dec2hex[round(65535 x emiss)]</tt>
  *  \return            Physical emissivity value in range 0.1 ...1.0
  */
 float MLX90614::getEmissivity(void) {
@@ -181,8 +183,8 @@ uint8_t MLX90614::getIIRcoeff(void) {
 /**
  *  \brief            Set the coefficients of the FIR digital filter.
  *  \remarks          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
- *  \n                The value of N is set as follows:  <tt>N = 2 ^ (csb + 3)</tt>
-    \n                The manufacturer does not recommend <tt>N < 128</tt>
+ *  \n                The value of N is set as follows:  &nbsp;<tt> N = 2 ^ (csb + 3)</tt>
+    \n                The manufacturer does not recommend &nbsp;<tt>N < 128</tt>
  *  \param [in] csb   See page 12 of datasheet. Range 0...7, default = 7 (N = 1024)
  */
 void MLX90614::setFIRcoeff(uint8_t csb) {
@@ -206,8 +208,8 @@ void MLX90614::setFIRcoeff(uint8_t csb) {
 /**
  *  \brief            Get the coefficients of the FIR digital filter.
  *  \remarks          The FIR digital filter coefficient N is bits 10:8 of ConfigRegister1
- *  \n                The value of N is set as follows:  <tt>N = 2 ^ (csb + 3)</tt>
-    \n                The manufacturer does not recommend <tt>N < 128</tt>
+ *  \n                The value of N is set as follows:  &nbsp;<tt> N = 2 ^ (csb + 3)</tt>
+    \n                The manufacturer does not recommend &nbsp;<tt> N < 128</tt>
  */
 uint8_t MLX90614::getFIRcoeff(void) {
 
@@ -379,16 +381,16 @@ void MLX90614::writeEEProm(uint8_t reg, uint16_t data) {
 }
 
 /**
- *  \brief            Convert temperature in degrees K to degrees C.
- *  \param [in] degK  Temperature in degrees Kelvin.
- *  \return           Temperature in degrees Centigrade.
+ *  \brief            Convert temperature in &deg;K to &deg;C.
+ *  \param [in] degK  Temperature in &deg;K.
+ *  \return           Temperature in &deg;C.
  */
 double MLX90614::convKtoC(double degK) {return degK - 273.15;}
 
 /**
- *  \brief            Convert temperature in degrees C to degrees F.
- *  \param [in] degC  Temperature in degrees Centigrade.
- *  \return           Temperature in degrees Fahrenheit.
+ *  \brief            Convert temperature in &deg;C to &deg;F.
+ *  \param [in] degC  Temperature in &deg;C.
+ *  \return           Temperature in &deg;F.
  */
 double MLX90614::convCtoF(double degC) {return (degC * 1.8) + 32.0;}
 

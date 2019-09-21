@@ -17,7 +17,7 @@
  *  \author     J. F. Fitter <jfitter@eagleairaust.com.au>
  *  \version    1.0
  *  \date       2014-2017
- *  \copyright  Copyright (c) 2017 John Fitter.  All right reserved.
+ *  \copyright  Copyright &copy; 2017 John Fitter.  All right reserved.
  *
  *  \par        License
  *              This program is free software; you can redistribute it and/or modify it under
