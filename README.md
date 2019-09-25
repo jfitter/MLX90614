@@ -1,4 +1,4 @@
-## Arduino Library for the MLX90614 Temperature Sensor
+## MLX90614 Device Driver
 
 This library was written to enable remote sensing of the temperature of the rotors of outrunner style brushless DC motors used in remotely piloted aircraft, for the purpose of real time data logging and air to ground telemetry.
 
@@ -6,22 +6,28 @@ These sensors use the SMB bus protocol to communicate. This is similar, though n
 
 ### Installing
 
-Download the distribution package and decompress it.  
+Download the distribution package ***MLX90614.rar*** and decompress it.  
 Rename the uncompressed folder ***/mlx90614***.  
 Check that the ***/mlx90614*** folder contains the following files;
 
-> MLX90614.cpp  
-> MLX90614.h  
-> MLX90614.chm  
-> MLX90614.pdf  
-> Crc8.cpp  
-> Crc8.h  
-> property.h  
-> doxyfile  
+> src/MLX90614.cpp  
+> src/MLX90614.h  
+> src/Crc8.cpp  
+> src/Crc8.h  
+> src/property.h  
+> doc/MLX90614.chm  
+> doc/MLX90614.pdf  
+> Doxyfile  
+> keywords.txt  
+> library.properties  
+> LICENSE.md  
+> README.md  
 
 Place the ***/mlx90614*** library folder into your ***arduinosketchfolder/libraries/*** folder.  
-You may need to create the libraries subfolder if its your first library.
+You may need to create the libraries subfolder if its your first library.  
 Restart the IDE.
+
+You can also optionally install this library using the Arduino IDE built-in installer.
 
 ### Documentation
 
