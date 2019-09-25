@@ -43,5 +43,6 @@ Temporary Items
 .apdisk
 *.bak
 examples/mlxtest_mlp/
-html/
-latex/
+doc/html/
+doc/latex/
+archive
