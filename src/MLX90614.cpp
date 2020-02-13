@@ -99,7 +99,7 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
     temp *= 0.02;
     switch(tunit) {
         case MLX90614_TC : return convKtoC(temp);
-        case MLX90614_TF : return convKtoC(convCtoF(temp));
+        case MLX90614_TF : return convCtoF(convKtoC(temp));  // fix 13feb2020
     }
     return temp;
 }
@@ -113,7 +113,7 @@ double MLX90614::readTemp(tempSrc_t tsrc, tempUnit_t tunit) {
 void MLX90614::setEmissivity(float emiss) {
 
     _rwError = 0;
-    uint16_t e = int(emiss * 65535. + 0.5);
+    uint16_t e = emiss * 65535. + 0.5;  // fix 13feb2020
     if((emiss > 1.0) || (e < 6553)) _rwError |= MLX90614_INVALIDATA;
     else writeEEProm(MLX90614_EMISS, e);
 }
@@ -126,7 +126,6 @@ void MLX90614::setEmissivity(float emiss) {
 float MLX90614::getEmissivity(void) {
 
     _rwError = 0;
-    uint16_t emiss = readEEProm(MLX90614_EMISS);
     if(_rwError) return (float)1.0;
     return (float)emiss / 65535.0;
 }

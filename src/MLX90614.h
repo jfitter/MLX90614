@@ -107,11 +107,11 @@ public:
     uint64_t readID(void);                                  /**< Chip ID getter */
 
     uint8_t  getIIRcoeff(void);                             /**< IIR coefficient getter */
-    uint8_t  getFIRcoeff(void);                             /**< IIR coefficient getter */
+    uint8_t  getFIRcoeff(void);                             /**< FIR coefficient getter */
     float    getEmissivity(void);                           /**< Emissivity getter */
                                  
     void     setIIRcoeff(uint8_t csb = 4);                  /**< IIR coefficient setter */
-    void     setFIRcoeff(uint8_t csb = 7);                  /**< IIR coefficient setter */
+    void     setFIRcoeff(uint8_t csb = 7);                  /**< FIR coefficient setter */
     void     setEmissivity(float emiss = 1.0);              /**< Emissivity setter */
 
     uint16_t readEEProm(uint8_t);
@@ -156,4 +156,4 @@ private:
 
 };
 
-#endif /* _MLX90614_H_ */
+#endif /* _MLX90614_H_  */
